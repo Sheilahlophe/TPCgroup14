@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TPCgroup14
 *JavaScript Timeline and Console Demo*
 *Part A - Annotated JavaScript Timeline*
@@ -59,3 +60,6 @@ Firebase is a Backend-as-a-Service (BaaS), a set of pre-built cloud services tha
 * Firebase returns a response back to the browser
 
 
+=======
+# TPCgroup14
+>>>>>>> db49f34e02da643c63ea8b5511df96074780ff57
