@@ -1,64 +1,93 @@
+-Login Pseudocode
+
 START
     DISPLAY login form
-    ON submit:
-    IF email or password feild empty
-            SHOW "please complete all feilds"
-            RETURN to form
-        CALL firebase Auth signIn
-        IF success
-            STORE user session
-            REDIRECT to deshboard
-        ELSE
-            SHOW error message "Invalid credentials"
-            RETURN to form
-END
-
--Task Creation Flow
-START
-    DISPLAY task form
-    ON submit:
-    VALIDATE title is not empty
-    VALIDATE dueDate is a future/today dueDate
-    IF validation fails
-        SHOW inline error
-        STOP
-    BUILD task object { userId, title, catergory, dueDate, priority, completed: false, createdAt: now }
-    SEND POST request to Firebase REST endpoint tasks.json
-    IF response OK
-        ADD task to local array
-        RE-RENDER task list in DOM
-        CLEAR form
+    Enter email
+    Enter password
+    IF email or password feild empty THEN
+            Display "please complete all feilds"
     ELSE
-        SHOW "could not save task, try again"
-END
-
-//Progress Calculation Flow
-START
-    FETCH all tasks where task.userId === currentUser.userId
-    totalTasks = task.length
-    completedTasks = task. filter (t => t.completed === true).length
-    IF totalTasks === 0
-        progress = 0
-ELSE
-    progress = ROUND (completedTasks / totalTasks) * 100
-UPDATE dashboard DOM elements:
-    totalTasks, completedTasks, outstandingTasks (= totalTasks - completedTasks), progress %
-END
-
--Deletion Confirmation Flow
-
-START
-    USER clicks "Delete" on a 
-    SHOW confirmation dialog: "Delete this task? This cannot be undone."
-    ON confirm:
-        SEND DELETE request to Firebase REST endpoint task/{taskID.json}
-        IF response OK
-            REMOVE task element from DOM
-            REMOVE task from local array
-        ELSE
-            SHOW error message
-    ON cancel:
-        CLOSE dialog, no changes made
+        Check the login details
         
+        IF login details are correct THEN
+            Sign in the user
+            Display deshboard
+        ELSE
+            Display "Invalid credentials"
+            RETURN to form
+        END IF
+    END IF
+END
+
+-Task Creation Pseudocode
+
+START
+    Display task form
+
+    Enter task title
+    Enter catergory
+    Enter dueDate
+    Enter priority
+
+    IF required information is missing
+    THEN
+        Display "Please complete all required feilds"
+    ELSE
+        Create a new task
+
+        Save the task
+
+        Display the new task in the task list
+
+        Display "Task created successfully"
+    END IF 
+    
+END
+
+-Progress Calculation Pseudocode
+
+START
+FETCH all tasks
+
+IF there are no tasks THEN
+        Display "No tasks available"
+ELSE
+    Count the total number of tasks
+
+    Count the number of completed tasks
+
+    Calculate outstanding tasks
+
+    Calculate progress percentage
+
+    Display total tasks
+    Display completed tasks
+    Display outstanding tasks
+    Display progress percentage
+
+END IF
+END
+        
+
+-Delete Task Pseudocode
+
+START
+
+Display task list
+
+User selects a task to Delete
+
+Display confirmation dialog: "Are you sure you ant to delete this task? This action cannot be undone"
+
+IF user confirm deletion THEN
+    Delete the selected task
+    Update the task list
+    Display "Task deleted successfully"
+ELSE
+    Cancel deletion
+    Keep the task unchanged
+
+END IF
+      
 END
     
