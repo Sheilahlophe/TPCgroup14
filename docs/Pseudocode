@@ -1,0 +1,64 @@
+START
+    DISPLAY login form
+    ON submit:
+    IF email or password feild empty
+            SHOW "please complete all feilds"
+            RETURN to form
+        CALL firebase Auth signIn
+        IF success
+            STORE user session
+            REDIRECT to deshboard
+        ELSE
+            SHOW error message "Invalid credentials"
+            RETURN to form
+END
+
+-Task Creation Flow
+START
+    DISPLAY task form
+    ON submit:
+    VALIDATE title is not empty
+    VALIDATE dueDate is a future/today dueDate
+    IF validation fails
+        SHOW inline error
+        STOP
+    BUILD task object { userId, title, catergory, dueDate, priority, completed: false, createdAt: now }
+    SEND POST request to Firebase REST endpoint tasks.json
+    IF response OK
+        ADD task to local array
+        RE-RENDER task list in DOM
+        CLEAR form
+    ELSE
+        SHOW "could not save task, try again"
+END
+
+//Progress Calculation Flow
+START
+    FETCH all tasks where task.userId === currentUser.userId
+    totalTasks = task.length
+    completedTasks = task. filter (t => t.completed === true).length
+    IF totalTasks === 0
+        progress = 0
+ELSE
+    progress = ROUND (completedTasks / totalTasks) * 100
+UPDATE dashboard DOM elements:
+    totalTasks, completedTasks, outstandingTasks (= totalTasks - completedTasks), progress %
+END
+
+-Deletion Confirmation Flow
+
+START
+    USER clicks "Delete" on a 
+    SHOW confirmation dialog: "Delete this task? This cannot be undone."
+    ON confirm:
+        SEND DELETE request to Firebase REST endpoint task/{taskID.json}
+        IF response OK
+            REMOVE task element from DOM
+            REMOVE task from local array
+        ELSE
+            SHOW error message
+    ON cancel:
+        CLOSE dialog, no changes made
+        
+END
+    
