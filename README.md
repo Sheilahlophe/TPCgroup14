@@ -75,7 +75,7 @@ This includes:
 
 # Git and GitHub workflow
 
-Team members will work using feature branches and meaningful commits.
+Team members will work using their branches and meaningful commits.
 
 Changes will be reviewed through pull requests before being merged into the main branch.
 
