@@ -1,0 +1,89 @@
+## User Stories
+
+1. As a Learner I want to register account and be able to access the Learner dashboard.
+2. As a Learner I want to create, view my tasks and be able to track my progress.
+3. As a Learner I want to book and view my support sessions, so that I don't miss them.
+4. As a Learner I want to make goal records and view them on the learner dashboard.
+6. As a Learner I want to play a mini game.
+6. As an Assessor I want to view bookings and upade their statuses.
+7. As an Assessor I want to view learner tasks and progress.
+8. As an Assessor I want to be able to upload learning materials on the dashboard.
+
+## Acceptance Criteria
+
+1. As a Learner I want to register account and be able to access the Learner dashboard.
+# Acceptance Criteria
+- Results page loads almost immediately after clicking My Scores button.
+- Scores are ordered by date.
+- Results shows taskName,taskDescription, taskDate and status.
+- Learner can only see their own Scores.
+- If no results exist a message will be displayed saying no tasks completed yet.
+
+2. As a Learner I want to create, view my tasks and be able to track my progress.
+# Acceptance Criteria
+- A Create task page is displayed after clicking New Task button.
+- The learner can enter a task title,task description,task status.
+- The learner can save a new task by clicking the Save Task button.
+- A message is displayed when the task is successfully created or appropriate error message.
+- The learner can view all their existing tasks.
+- The learner can update the status of a task.
+- The learner can see their overall task progress on the dashboard.
+ 
+3. As a Learner I want to book and view my support sessions, so that I don't miss them.
+# Acceptance Criteria
+- A Support Sessions page is displayed when the learner click sessions button.
+- The learner can view available support sessions.
+- Each session displays the date, time, assessor and session details.
+- The learner can select an available session.
+- A message is displayed after a successful booking.
+- The booked session appears in the learner's My Sessions section.
+
+4. As a Learner I want to make goal record and view them on the learner dashboard.
+# Acceptance Criteria
+- A Goals page is displayed after clicking Goals button on the learner dashboard.
+- The learner can click Add Goal to create a new goal.
+- The learner can enter a goal title, goal description & goal date.
+- A message is displayed after the goal is successfully saved by the save button.
+- The learner can view all their saved goals.
+- The learner can update the status of a goal.
+
+6. As a Learner I want to play a mini game.
+# Acceptance Criteria
+- A Mini Game option is available on the learner dashboard.
+- The learner can launch the mini game.
+- The game displays clear instructions before the learner starts.
+- The learner can play the game.
+- The learner receives a score after completing the game.
+- The learner can restart or play the game again.
+
+6. As an Assessor I want to view bookings and upade their statuses.
+# Acceptance Criteria
+- An Assessor Bookings page is available on the assessor dashboard.
+- The assessor can view all learner bookings.
+- Each booking displays the learner name, session date, time, and session details.
+- The assessor can view the current booking status.
+- The assessor can update the booking status.
+- Available statuses include Pending, Confirmed, Completed, and Cancelled.
+- The updated status is immediately displayed in the booking list.
+- Learners can see the updated booking status.
+
+7. As an Assessor I want to view learner tasks and progress.
+# Acceptance Criteria
+- A Learner Progress section is available on the assessor dashboard.
+- The assessor can view a list of learners.
+- The assessor can select a learner to view their tasks.
+- The assessor can view the status of each task.
+- The assessor can view the learner's overall task progress.
+- Task progress is updated when the learner changes their task status.
+
+8. As an Assessor I want to be able to upload learning materials on the dashboard.
+# Acceptance Criteria
+- An Upload Learning Material option is available on the assessor dashboard.
+- The assessor can select a file from their device.
+- The assessor can enter a material title.
+- The assessor can enter a description for the material.
+- The assessor can upload supported file types.
+- A message is displayed after a successful upload.
+- The uploaded material appears in the learning materials section.
+- Learners can view or download materials made available to them.
+- The assessor can view, update & delete previously uploaded materials.
