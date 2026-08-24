@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - Sheila
   pull_request:
     branches:
       - main
