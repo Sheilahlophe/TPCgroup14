@@ -1,8 +1,4 @@
 # TPCgroup14
-<<<<<<< HEAD
-Week 1 - Project planning
-Created a shared git repo
-=======
 ## Learner Support Portal
 The learner support portal is a browser based application designed to help learners manage their learning tasks, track progress and access support
 
