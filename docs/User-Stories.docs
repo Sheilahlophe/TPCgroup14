@@ -13,11 +13,23 @@
 
 1. As a Learner I want to register account and be able to access the Learner dashboard.
 # Acceptance Criteria
-- Results page loads almost immediately after clicking My Scores button.
-- Scores are ordered by date.
-- Results shows taskName,taskDescription, taskDate and status.
-- Learner can only see their own Scores.
-- If no results exist a message will be displayed saying no tasks completed yet.
+- A Register page is displayed when the learner selects the Register button.
+- The learner can enter their first name.
+- The learner can enter their surname.
+- The learner can enter a valid email address.
+- The learner can create a password.
+- The learner can confirm their password.
+- The learner must complete all required fields before registering.
+- The system validates that the email address is in a valid format.
+- The system checks that the password and confirmation password match.
+- The system prevents registration when an account with the same email address already exists.
+- A successful registration message is displayed after the account is created.
+- The learner can log in using their registered email address and password.
+- Invalid login details display an appropriate error message.
+- After successful login, the learner is redirected to the Learner Dashboard.
+- The Learner Dashboard displays the learner's relevant information and available features.
+- The learner can log out of the dashboard successfully.
+- After logging out, the learner cannot access the Learner Dashboard without logging in again.
 
 2. As a Learner I want to create, view my tasks and be able to track my progress.
 # Acceptance Criteria
