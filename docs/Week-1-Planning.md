@@ -27,3 +27,24 @@ The learner support portal will include the following:
 
 ### Out of Scope
 
+The following are outside the agreed project scope:
+
+1. A mobile application for Android or iOS.
+2. Payment processing or financial transactions.
+3. Storage of passwords in the application database or cookies.
+4. Unrestricted public access to learner information.
+5. Features unrelated to learner support, task management, progress tracking or the approved mini-game.
+6. Advanced administrative functionality that has not been approved as part of the project requirements.
+
+### Scope Constraints
+
+The project must:
+
+- Use HTML5, CSS3 and JavaScript (ES6 or later).
+- Use Firebase Realtime Database for application data.
+- Use an approved Firebase authentication method.
+- Use Git and GitHub for version control and team collaboration.
+- Include a basic GitHub Actions continuous integration check.
+- Follow appropriate data security and validation practices.
+- Be completed within the two-month integrated project period.
+

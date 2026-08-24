@@ -80,3 +80,17 @@ Team members will work using their branches and meaningful commits.
 Changes will be reviewed through pull requests before being merged into the main branch.
 
 # Project Structure
+
+```text
+TPCgroup14/
+│
+├── Assets/
+├── docs/
+├── Presentation/
+├── src/
+├── tests/
+├── .gitignore
+├── CHANGELOG.md
+├── LICENSE.txt
+└── README.md
+```
