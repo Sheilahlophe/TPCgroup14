@@ -57,7 +57,7 @@ The project aims to provide:
 - Plan DELETE request
 - Design JavaScript classes
 - Choose assessor-approved JavaScript game library
-#Week 3
+## Week 3
 - Ceate the HTML applicatuin structure
 - Create CSS styking
 - Build navigation
@@ -70,7 +70,7 @@ The project aims to provide:
 - Build progress-summary interface
 - build game page
 - add javascript event listener
-- Add dynamic DOM renering
+- Add dynamic DOM reneringssss
 - Implement arrays of task objections
 - Implement reuseable functions
 - Implement arrows functions
