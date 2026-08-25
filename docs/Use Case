@@ -1,0 +1,169 @@
+
+## 1. System
+
+Learner support portal
+
+## 2. Actors
+
+### Learner
+
+The learner uses the portal to manage learning activities, tasks, goals, support sessions and progress.
+
+### Assessor / Administrator
+
+The assessor uses the portal to monitor learner activity and manage learner support activities.
+
+## 3. Learner use case 
+
+We use UC to give each use case a unique ID
+
+### UC-1 Register Account
+
+**Actor:** learner
+**Description:** The learner creates an account to access the learner support portal.
+**Precondition:** The learner does not already have an account.
+
+**Main Flow**: 
+1. Learner opens the registration page.
+2. Learner enters the required registration details.
+3. System validates the information.
+4. System creates the learner account.
+5. System displays a successful registration message.
+6. Learner can proceed to log in.
+
+**Alternative Flow**
+- If required information is missing or invalid, the system displays an error message
+- If the email address is already registered, the system informs the learner.
+
+### UC-2 Login
+
+**Actor:** Learner/ Assessor
+**Description:** The user signs in to access the portal.
+**Precondition:** The user has a registered account.
+
+**Main Flow:**
+1. User enters their login details.
+2. System validates the details
+3. System authenticates the user.
+4. System displays the appropriate dashboard.
+
+**Alternative Flow**
+- If the log in details are incorrect, the system displays an error message.
+
+### UC3 Manage Learning Tasks
+
+**Actor:** Learner
+**Description:** The learner manages their learning tasks
+
+**Main Flow:**
+1. Learner opens the task manager.
+2. Learner creates, views or edits a task.
+3. Learner can mark a task as completed.
+4. Learner can delete a task.
+5. System updates the task list.
+
+**Alternative flow**
+- Before deleting a task, the system displays a confirmation message. 
+- If the learner cancels the deletion, the task remains unchanged.
+
+### UC4 Manage Goals
+
+**Actor:** Learner
+**Description:**  The learner records and manages learning goals.
+
+**Main Flow:**
+1. Learner opens the goals section.
+2. Learner creates or updates a goal.
+3. System saves the goal.
+4. System displays the updated goal information.
+
+### UC5 Book Support Session
+
+**Actor:** Learner
+**Description:**  The learner submits a request for a support session.
+
+**Main Flow:**
+1. Learner opens the support-session section.
+2. Learner enters the required booking information.
+3. System validates the information.
+4. System saves the booking request.
+5. System displays the booking status.
+
+**Alternative Flow:**
+- If required information is missing or invalid, the system displays an error message.
+
+### UC6 View Progress
+
+**Actor:** Learner
+**Description:** The learner views their learning progress.
+
+**Main Flow:**
+1. Learner opens the dashboard.
+2. System retrieves the learner's task information.
+3. System calculates the learner's progress.
+4. System displays completed, outstanding and total tasks.
+5. Learner can view their progress summary.
+
+### UC7 Access Learning Resources
+
+**Actor:** Learner
+**Description:** The learner accesses learning materials available through the portal.
+
+**Main Flow:**
+1. Learner opens the learning resources section.
+2. System displays available resources.
+3. Learner selects a resource.
+4. System displays or provides access to the selected resource.
+
+### UC8 Play Coding Mini-Game
+
+**Actor:** Learner
+**Description:** The learner plays the coding mini-game as an interactive learning activity.
+
+**Main Flow:**
+1. Learner opens the mini-game.
+2. System loads the game.
+3. Learner interacts with the game.
+4. System processes the learner's actions.
+5. System displays the game result or score.
+
+
+## 4. Assessor / Administrator Use Cases
+
+### UC9 View Learner Activity and Progress
+
+**Actor:** Assessor / Administrator
+**Description:** The assessor views relevant learner activity and progress.
+
+**Main Flow:**
+1. Assessor logs into the portal.
+2. Assessor accesses learner information.
+3. System displays relevant learner tasks and progress.
+4. Assessor reviews the information.
+
+
+### UC10 Manage Support Bookings
+
+**Actor:** Assessor / Administrator
+**Description:** The assessor manages learner support-session bookings.
+
+**Main Flow:**
+1. Assessor opens support bookings.
+2. System displays submitted bookings.
+3. Assessor reviews a booking.
+4. Assessor updates the booking status.
+5. System saves the updated status.
+
+
+### UC11 Upload Learning Materials
+
+**Actor:** Assessor / Administrator
+**Description:** The assessor uploads learning materials for learners to access.
+
+**Main Flow:**
+1. Assessor opens the learning-materials section.
+2. Assessor selects the material to upload.
+3. System validates the upload.
+4. System stores the material.
+5. The material becomes available to learners.
+
