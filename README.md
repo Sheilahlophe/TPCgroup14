@@ -35,7 +35,7 @@ The project aims to provide:
 - Create task creation pseudocode
 - Assign project features to team members
   
-## Week 2
+## Week 2 - Environment, github and architecture
 - Configure VS Code
 - Configure code formatter
 - Configure JavaScript linter
@@ -57,7 +57,7 @@ The project aims to provide:
 - Plan DELETE request
 - Design JavaScript classes
 - Choose assessor-approved JavaScript game library
-## Week 3
+## Week 3 - Application foundation
 - Ceate the HTML applicatuin structure
 - Create CSS styking
 - Build navigation
@@ -70,7 +70,7 @@ The project aims to provide:
 - Build progress-summary interface
 - build game page
 - add javascript event listener
-- Add dynamic DOM reneringssss
+- Add dynamic DOM rendering
 - Implement arrays of task objections
 - Implement reuseable functions
 - Implement arrows functions
