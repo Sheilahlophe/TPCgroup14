@@ -1,8 +1,4 @@
 # TPCgroup14
-<<<<<<< HEAD
-Week 1 - Project planning
-Created a shared git repo
-=======
 ## Learner Support Portal
 The learner support portal is a browser based application designed to help learners manage their learning tasks, track progress and access support
 
@@ -78,9 +74,22 @@ This includes:
 
 # Git and GitHub workflow
 
-Team members will work using feature branches and meaningful commits.
+Team members will work using their branches and meaningful commits.
 
 Changes will be reviewed through pull requests before being merged into the main branch.
 
 # Project Structure
->>>>>>> e2ca9f3642b7503875e78bcbde7abeb077f153b5
+
+```text
+TPCgroup14/
+│
+├── Assets/
+├── docs/
+├── Presentation/
+├── src/
+├── tests/
+├── .gitignore
+├── CHANGELOG.md
+├── LICENSE.txt
+└── README.md
+```
