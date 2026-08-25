@@ -57,6 +57,27 @@ The project aims to provide:
 - Plan DELETE request
 - Design JavaScript classes
 - Choose assessor-approved JavaScript game library
+#Week 3
+- Ceate the HTML applicatuin structure
+- Create CSS styking
+- Build navigation
+- Build registration page
+- Build login page
+- Build dashboard page
+- Build dashboard page
+- Build task manager page
+- Build support booking page
+- Build progress-summary interface
+- build game page
+- add javascript event listener
+- Add dynamic DOM renering
+- Implement arrays of task objections
+- Implement reuseable functions
+- Implement arrows functions
+- Implement loops
+- Implement conditional statements
+- add prototype
+
 
 # Documentation
 Detailed project documentation is available in the docs folder

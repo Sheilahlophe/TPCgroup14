@@ -5,7 +5,7 @@
 
     "users": {
       "$uid": {
-        ".read": "auth != null && (auth.uid == $uid || root.child('users').child(auth.uid).child('role').val() == 'assessor')",
+        ".read": "auth != null && (auth.uid == $uid || root.child('users').child(auth.uid).child('role').val() == 'lecturer')",
         ".write": "auth != null && auth.uid == $uid",
         ".validate": "newData.hasChildren(['email', 'displayName', 'role', 'createdAt'])",
         "role": {
@@ -15,9 +15,9 @@
     },
 
     "tasks": {
-      ".read": "auth != null && root.child('users').child(auth.uid).child('role').val() == 'assessor'",
+      ".read": "auth != null && root.child('users').child(auth.uid).child('role').val() == 'Lecturer'",
       "$taskId": {
-        ".read": "auth != null && (data.child('userId').val() == auth.uid || root.child('users').child(auth.uid).child('role').val() == 'assessor')",
+        ".read": "auth != null && (data.child('userId').val() == auth.uid || root.child('users').child(auth.uid).child('role').val() == 'Lecturer')",
         ".write": "auth != null && (!data.exists() && newData.child('userId').val() == auth.uid || data.child('userId').val() == auth.uid)",
         ".validate": "newData.hasChildren(['userId', 'title', 'category', 'dueDate', 'priority', 'status', 'createdAt', 'updatedAt'])",
         "priority": {
@@ -30,11 +30,11 @@
     },
 
     "bookings": {
-      ".read": "auth != null && root.child('users').child(auth.uid).child('role').val() == 'assessor'",
+      ".read": "auth != null && root.child('users').child(auth.uid).child('role').val() == 'Lecturer'",
       "$bookingId": {
-        ".read": "auth != null && (data.child('learnerId').val() == auth.uid || data.child('assessorId').val() == auth.uid || root.child('users').child(auth.uid).child('role').val() == 'assessor')",
-        ".write": "auth != null && (newData.child('learnerId').val() == auth.uid || root.child('users').child(auth.uid).child('role').val() == 'assessor')",
-        ".validate": "newData.hasChildren(['learnerId', 'topic', 'preferredDate', 'status', 'createdAt'])",
+        ".read": "auth != null && (data.child('StudentId').val() == auth.uid || data.child('LecturerId').val() == auth.uid || root.child('users').child(auth.uid).child('role').val() == 'assessor')",
+        ".write": "auth != null && (newData.child('StudentId').val() == auth.uid || root.child('users').child(auth.uid).child('role').val() == 'assessor')",
+        ".validate": "newData.hasChildren(['StudentId', 'topic', 'preferredDate', 'status', 'createdAt'])",
         "status": {
           ".validate": "newData.val() == 'pending' || newData.val() == 'confirmed' || newData.val() == 'completed' || newData.val() == 'cancelled'"
         }
@@ -44,7 +44,7 @@
     "resources": {
       ".read": "auth != null",
       "$resourceId": {
-        ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() == 'assessor'",
+        ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() == 'Lecturer'",
         ".validate": "newData.hasChildren(['title', 'type', 'url', 'description', 'category'])",
         "type": {
           ".validate": "newData.val() == 'document' || newData.val() == 'link' || newData.val() == 'guide'"
