@@ -83,13 +83,18 @@ Changes will be reviewed through pull requests before being merged into the main
 ```text
 TPCgroup14/
 │
-├── Assets/
+├── assets/
+├── database/          # Realtime DB schema + security rules (Students Portal)
 ├── docs/
-├── Presentation/
+├── presentation/
 ├── src/
-├── tests/
+│   └── js/
+│       ├── firebase-config.js   # Firebase project: student-s-portal-f5d1d
+│       └── database.js          # REST API helpers
+├── .firebaserc
+├── firebase.json
 ├── .gitignore
 ├── CHANGELOG.md
-├── LICENSE.txt
+├── LICENSE
 └── README.md
 ```

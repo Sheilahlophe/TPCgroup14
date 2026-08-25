@@ -1,0 +1,79 @@
+{
+  "users": {
+    "studentDemo001": {
+      "email": "student@students-portal.example",
+      "displayName": "Demo Student",
+      "role": "learner",
+      "createdAt": "2026-08-25T08:00:00.000Z"
+    },
+    "assessorDemo001": {
+      "email": "assessor@students-portal.example",
+      "displayName": "Demo Assessor",
+      "role": "assessor",
+      "createdAt": "2026-08-25T08:00:00.000Z"
+    }
+  },
+  "tasks": {
+    "task001": {
+      "userId": "studentDemo001",
+      "title": "Complete HTML form validation",
+      "category": "frontend",
+      "dueDate": "2026-09-01",
+      "priority": "high",
+      "status": "todo",
+      "createdAt": "2026-08-25T09:00:00.000Z",
+      "updatedAt": "2026-08-25T09:00:00.000Z"
+    },
+    "task002": {
+      "userId": "studentDemo001",
+      "title": "Review Firebase security rules",
+      "category": "backend",
+      "dueDate": "2026-09-05",
+      "priority": "medium",
+      "status": "done",
+      "createdAt": "2026-08-20T10:00:00.000Z",
+      "updatedAt": "2026-08-24T14:30:00.000Z"
+    }
+  },
+  "bookings": {
+    "booking001": {
+      "learnerId": "studentDemo001",
+      "assessorId": "assessorDemo001",
+      "topic": "Help with task manager progress calculation",
+      "preferredDate": "2026-08-28T15:00:00.000Z",
+      "status": "pending",
+      "notes": "Need clarification on outstanding vs completed tasks",
+      "createdAt": "2026-08-25T11:00:00.000Z"
+    }
+  },
+  "resources": {
+    "resource001": {
+      "title": "JavaScript ES6 Quick Guide",
+      "type": "guide",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "description": "Core language reference for Students Portal learners",
+      "category": "javascript"
+    },
+    "resource002": {
+      "title": "Firebase Realtime Database docs",
+      "type": "link",
+      "url": "https://firebase.google.com/docs/database",
+      "description": "Official Firebase Realtime Database documentation",
+      "category": "firebase"
+    }
+  },
+  "gameScores": {
+    "score001": {
+      "userId": "studentDemo001",
+      "score": 120,
+      "level": 2,
+      "playedAt": "2026-08-24T16:20:00.000Z"
+    }
+  },
+  "preferences": {
+    "studentDemo001": {
+      "theme": "light",
+      "taskFilter": "all"
+    }
+  }
+}

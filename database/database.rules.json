@@ -1,0 +1,74 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "users": {
+      "$uid": {
+        ".read": "auth != null && (auth.uid == $uid || root.child('users').child(auth.uid).child('role').val() == 'assessor')",
+        ".write": "auth != null && auth.uid == $uid",
+        ".validate": "newData.hasChildren(['email', 'displayName', 'role', 'createdAt'])",
+        "role": {
+          ".validate": "newData.val() == 'student' || newData.val() == 'lecturer'"
+        }
+      }
+    },
+
+    "tasks": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('role').val() == 'assessor'",
+      "$taskId": {
+        ".read": "auth != null && (data.child('userId').val() == auth.uid || root.child('users').child(auth.uid).child('role').val() == 'assessor')",
+        ".write": "auth != null && (!data.exists() && newData.child('userId').val() == auth.uid || data.child('userId').val() == auth.uid)",
+        ".validate": "newData.hasChildren(['userId', 'title', 'category', 'dueDate', 'priority', 'status', 'createdAt', 'updatedAt'])",
+        "priority": {
+          ".validate": "newData.val() == 'low' || newData.val() == 'medium' || newData.val() == 'high'"
+        },
+        "status": {
+          ".validate": "newData.val() == 'todo' || newData.val() == 'in-progress' || newData.val() == 'done'"
+        }
+      }
+    },
+
+    "bookings": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('role').val() == 'assessor'",
+      "$bookingId": {
+        ".read": "auth != null && (data.child('learnerId').val() == auth.uid || data.child('assessorId').val() == auth.uid || root.child('users').child(auth.uid).child('role').val() == 'assessor')",
+        ".write": "auth != null && (newData.child('learnerId').val() == auth.uid || root.child('users').child(auth.uid).child('role').val() == 'assessor')",
+        ".validate": "newData.hasChildren(['learnerId', 'topic', 'preferredDate', 'status', 'createdAt'])",
+        "status": {
+          ".validate": "newData.val() == 'pending' || newData.val() == 'confirmed' || newData.val() == 'completed' || newData.val() == 'cancelled'"
+        }
+      }
+    },
+
+    "resources": {
+      ".read": "auth != null",
+      "$resourceId": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() == 'assessor'",
+        ".validate": "newData.hasChildren(['title', 'type', 'url', 'description', 'category'])",
+        "type": {
+          ".validate": "newData.val() == 'document' || newData.val() == 'link' || newData.val() == 'guide'"
+        }
+      }
+    },
+
+    "gameScores": {
+      "$scoreId": {
+        ".read": "auth != null && (data.child('userId').val() == auth.uid || root.child('users').child(auth.uid).child('role').val() == 'assessor')",
+        ".write": "auth != null && newData.child('userId').val() == auth.uid",
+        ".validate": "newData.hasChildren(['userId', 'score', 'playedAt'])"
+      }
+    },
+
+    "preferences": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid",
+        ".validate": "newData.hasChildren(['theme'])",
+        "theme": {
+          ".validate": "newData.val() == 'light' || newData.val() == 'dark'"
+        }
+      }
+    }
+  }
+}
