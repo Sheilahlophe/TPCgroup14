@@ -1,6 +1,8 @@
 # TPCgroup14
+
 ## Learner Support Portal
-The learner support portal is a browser based application designed to help learners manage their learning tasks, track progress and access support
+The client requires a web-based Learner Support Portal designed to help learners manage their learning activities, monitor their progress, access learning resources and receive support. Learners will be able to self-register and log in, while Assessor accounts will be created and controlled by the Admin, with Assessors receiving their login credentials from the Admin.
+The system will include task management, progress tracking, learner support, search and filtering, learning resources and an educational mini-game. The system must be simple, user-friendly and secure. Task due dates, priority, overdue tasks and points-based progress are excluded from the requirements.
 
 ## Project Objective
 The project aims to provide:
@@ -13,7 +15,7 @@ The project aims to provide:
 -Confirmation dialogs for important actions
 -Progress reporting
 
-##Technologies
+## Technologies
 -HTML
 -CSS
 -JavaScript
