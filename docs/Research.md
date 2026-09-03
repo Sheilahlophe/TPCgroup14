@@ -68,3 +68,129 @@ Supabase and AWS Amplify
 - Exposed or bypassable business rules
 - Data exposure through unrestricted read access.
 - Credential or secret leakage.
+
+
+# Month one - Formative questions
+
+Q1. Explain why programming life cycle should be followed before coding?
+- It helps developers to understand the problem and plan the solution, it saves time and reduces errors and make sure that the programme meets the users requirements.
+
+Q2. List and explain the main steps of the programmimg life cycle.
+- Problem analysis: Indentify the problems, users, objectives, inputs, outputs and liminations.
+- Requirements gathering: Determine exactly what the programe must do and define its acceptance criteria
+- Solution design: Plan the program's interface, date and logic using pseudocode, flowcharts or wireframes.
+- Coding: Convert the planned solution into a working code 
+- Testing and debugging: Test the program with different inputs, identify errors and correct
+- Implementation: Deploy or release the completed program so users can use it.
+- Documentantion: Record how the program works and provide instructions for users and developers
+- Maintance: Fix all the problems, errors and improve perfomance.
+
+Q3. Explain when const should be used instead of let. Also explain why var should normally be avoided in mordern Javascript.
+- Const should be use when a variable will not be reassigned after it has be declared. let should be used were a variable need be changed. var should normally can be avoided because it has function scope.
+
+Q4. Explain how local and global scope can affect the reability and maintanability of Javascript application
+- Local variables can be accessed inside the function or block where they are declared, reducing naming conflicts and accidental changes. Global Variables can be accessed and modify from different parts of the application, making errors harder to locate.
+
+Q5. Explain how map(), filter(), and reduce() process an array of a task objects defferently. Provide one suitable for each.
+- map() process every task and create a new array of transformed values.It can be used to create an array containing only task titles.
+-filter() create new arrays cointaining task to meet conditions, it can be used to select completed tasks.
+- reduce() combines all tasks into a single results. It can be used to calculate the total number of tasks
+
+Q6. Explain why an application should use classes or structured objects instead of storing related information in several unrelated variables.
+- Classes and structured objects keep related information together.
+
+Q7. Explain how branches, pull requests and automated checks reduce risk when developers collaborate in the projects
+- Branches allow each developer to work on a new features withouth directly changing the stable main code. Pull requests allow team members to review and discuss changes before merging them. Automated checks run tests and code-quality checks automatically.
+
+Q8. a. State the data type of each value
+- UserName is a string
+- age is a number
+- isActive is a boolean
+- SelectedProject is a null
+b. Explain age how can it converted from a number to string
+- The typeof operator is used to determine the data type of value or variable.
+
+Q9. a. State the output of each statement
+- 105
+- true
+- false
+
+b. Explain why "10" + 5 does not produce number 15
+- "10" is a string, when + operator is used with a string and number Js convers the number ito the string an jions the value.
+
+c. Explain the difference between == and ===
+== Compares values allows jsto convert their data types, === compares both values and their data types withot perfoming type conversion.
+
+d. Rewrite the first statement so it ca produce 15
+const total = Number("10") + 5;
+
+Q10. a. Identify the parameters of calculateTotal().
+- The parameters are price and quantity. The quantity parameter has a default value of 1.
+
+b. Explain the purpose of the default value assigned to quantity.
+- The default value ensures that if no quantity is provided, the function calculates the total for one item.
+
+c. Explain what the return keyword does.
+- The return keyword ends the function and sends the calculated result back to the place where the function was called.
+
+d. State the value stored in orderTotal.
+- 150 × 3 = 450
+
+e. State the value stored in finalTotal.
+- The 10% discount is 45, so 450 − 45 = 405.
+
+f. Explain one difference between a function declaration and an arrow function.
+- A function declaration uses the function keyword and can normally be called before its definition because it is hoisted. An arrow function uses the => syntax and does not have its own this value.
+
+Q11. a.Write JavaScript code that uses a loop to display the title of every task.
+- for (const task of tasks) {
+    console.log(task.title);
+}
+b. Write JavaScript code that uses a conditional statement to display only completed tasks.
+- for (const task of tasks) {
+    if (task.completed === true) {
+        console.log(task.title);
+    }
+}
+c. Write JavaScript code that counts the number of completed tasks.
+- const completedCount = tasks.filter(task => task.completed).length;
+console.log(completedCount);
+
+The answer displayed is 2.
+
+d. Write JavaScript code that calculates the total number of hours for all tasks.
+- const totalHours = tasks.reduce((total, task) => {
+    return total + task.hours;
+}, 0);
+
+console.log(totalHours);
+
+The answer displayed is 14.
+
+e. Write JavaScript code that displays an appropriate message if no tasks are available.
+- if (tasks.length === 0) {
+    console.log("No tasks are available.");
+}
+
+Q15 
+
+a. Explain what information the cookie stores.
+- The cookie stores a preference named theme with the value dark.
+
+b. Explain the purpose of max-age=3600.
+- It means that the cookie will remain valid for 3,600 seconds, which is one hour.
+
+c.Explain the purpose of path=/.
+It makes the cookie available on every page of the website.
+
+d.Write a JavaScript statement that displays the available cookies.
+- console.log(document.cookie);
+
+Q16. A registration form contains name, email address, password and age fields. Develop five test cases for the form. Include the input or condition and the expected result.
+
+Test case	Input or condition	Expected result
+Valid submission	Name: Lerato; email: lerato@example.com; password: Secure123; age: 25	Registration succeeds and a success message is displayed.
+Missing value	Leave the name field empty while all other fields are valid.	Submission is rejected and “Name is required” is displayed.
+Invalid email	Enter leratoexample.com as the email address.	Submission is rejected and an invalid-email message is displayed.
+Boundary value	Enter the minimum permitted age, such as 18.	The age is accepted if 18 is the stated minimum age.
+Invalid password	Enter a password shorter than the required minimum, such as abc.	Submission is rejected and a password-requirement message is displayed
