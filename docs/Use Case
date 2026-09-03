@@ -1,7 +1,7 @@
 
 ## 1. System
 
-Learner support portal
+Learner Support Portal
 
 ## 2. Actors
 
@@ -13,17 +13,17 @@ The learner uses the portal to manage learning activities, tasks, goals, support
 
 The assessor uses the portal to monitor learner activity and manage learner support activities.
 
-## 3. Learner use case 
+## 3. Learner use cases
 
-We use UC to give each use case a unique ID
+We use UC to give each use case a unique ID.
 
 ### UC-1 Register Account
 
-**Actor:** learner
+**Actor:** Learner
 **Description:** The learner creates an account to access the learner support portal.
 **Precondition:** The learner does not already have an account.
 
-**Main Flow**: 
+**Main Flow:**
 1. Learner opens the registration page.
 2. Learner enters the required registration details.
 3. System validates the information.
@@ -32,28 +32,28 @@ We use UC to give each use case a unique ID
 6. Learner can proceed to log in.
 
 **Alternative Flow**
-- If required information is missing or invalid, the system displays an error message
+- If required information is missing or invalid, the system displays an error message.
 - If the email address is already registered, the system informs the learner.
 
 ### UC-2 Login
 
-**Actor:** Learner/ Assessor
+**Actor:** Learner / Assessor
 **Description:** The user signs in to access the portal.
 **Precondition:** The user has a registered account.
 
 **Main Flow:**
 1. User enters their login details.
-2. System validates the details
+2. System validates the details.
 3. System authenticates the user.
-4. System displays the appropriate dashboard.
+4. System displays the appropriate dashboard (Learner Dashboard or Assessor Dashboard).
 
 **Alternative Flow**
-- If the log in details are incorrect, the system displays an error message.
+- If the login details are incorrect, the system displays an error message.
 
-### UC3 Manage Learning Tasks
+### UC-3 Manage Learning Tasks
 
 **Actor:** Learner
-**Description:** The learner manages their learning tasks
+**Description:** The learner manages their learning tasks.
 
 **Main Flow:**
 1. Learner opens the task manager.
@@ -62,14 +62,14 @@ We use UC to give each use case a unique ID
 4. Learner can delete a task.
 5. System updates the task list.
 
-**Alternative flow**
-- Before deleting a task, the system displays a confirmation message. 
+**Alternative Flow**
+- Before deleting a task, the system displays a confirmation message.
 - If the learner cancels the deletion, the task remains unchanged.
 
-### UC4 Manage Goals
+### UC-4 Manage Goals
 
 **Actor:** Learner
-**Description:**  The learner records and manages learning goals.
+**Description:** The learner records and manages learning goals.
 
 **Main Flow:**
 1. Learner opens the goals section.
@@ -77,10 +77,10 @@ We use UC to give each use case a unique ID
 3. System saves the goal.
 4. System displays the updated goal information.
 
-### UC5 Book Support Session
+### UC-5 Book Support Session
 
 **Actor:** Learner
-**Description:**  The learner submits a request for a support session.
+**Description:** The learner submits a request for a support session.
 
 **Main Flow:**
 1. Learner opens the support-session section.
@@ -92,7 +92,7 @@ We use UC to give each use case a unique ID
 **Alternative Flow:**
 - If required information is missing or invalid, the system displays an error message.
 
-### UC6 View Progress
+### UC-6 View Progress
 
 **Actor:** Learner
 **Description:** The learner views their learning progress.
@@ -104,7 +104,7 @@ We use UC to give each use case a unique ID
 4. System displays completed, outstanding and total tasks.
 5. Learner can view their progress summary.
 
-### UC7 Access Learning Resources
+### UC-7 Access Learning Resources
 
 **Actor:** Learner
 **Description:** The learner accesses learning materials available through the portal.
@@ -115,7 +115,7 @@ We use UC to give each use case a unique ID
 3. Learner selects a resource.
 4. System displays or provides access to the selected resource.
 
-### UC8 Play Coding Mini-Game
+### UC-8 Play Coding Mini-Game
 
 **Actor:** Learner
 **Description:** The learner plays the coding mini-game as an interactive learning activity.
@@ -130,7 +130,7 @@ We use UC to give each use case a unique ID
 
 ## 4. Assessor / Administrator Use Cases
 
-### UC9 View Learner Activity and Progress
+### UC-9 View Learner Activity and Progress
 
 **Actor:** Assessor / Administrator
 **Description:** The assessor views relevant learner activity and progress.
@@ -142,7 +142,7 @@ We use UC to give each use case a unique ID
 4. Assessor reviews the information.
 
 
-### UC10 Manage Support Bookings
+### UC-10 Manage Support Bookings
 
 **Actor:** Assessor / Administrator
 **Description:** The assessor manages learner support-session bookings.
@@ -155,7 +155,7 @@ We use UC to give each use case a unique ID
 5. System saves the updated status.
 
 
-### UC11 Upload Learning Materials
+### UC-11 Upload Learning Materials
 
 **Actor:** Assessor / Administrator
 **Description:** The assessor uploads learning materials for learners to access.
@@ -166,4 +166,3 @@ We use UC to give each use case a unique ID
 3. System validates the upload.
 4. System stores the material.
 5. The material becomes available to learners.
-

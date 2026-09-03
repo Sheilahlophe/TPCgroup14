@@ -1,7 +1,6 @@
 /**
  * Students Portal — Firebase Realtime Database helpers (REST API).
  * Project: student-s-portal-f5d1d
- * Collections: users, tasks, bookings, resources, gameScores, preferences
  */
 import { firebaseConfig } from "./firebase-config.js";
 
