@@ -193,4 +193,4 @@ Valid submission	Name: Lerato; email: lerato@example.com; password: Secure123; a
 Missing value	Leave the name field empty while all other fields are valid.	Submission is rejected and “Name is required” is displayed.
 Invalid email	Enter leratoexample.com as the email address.	Submission is rejected and an invalid-email message is displayed.
 Boundary value	Enter the minimum permitted age, such as 18.	The age is accepted if 18 is the stated minimum age.
-Invalid password	Enter a password shorter than the required minimum, such as abc.	Submission is rejected and a password-requirement message is displayed.
+Invalid password	Enter a password shorter than the required minimum, such as abc.	Submission is rejected and a password-requirement message is displayed
