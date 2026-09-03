@@ -1,7 +1,7 @@
 ## Problem statement
-SkillsTrack Training Centre currently manages learner goals, tasks, support bookings and progress through separate documents and messages. This makes it difficult for learners to keep track of their outstanding work and for assessors to monitor learner activity and progress efficiently.
+SkillsTrack Training Centre currently manages learner goals, tasks, support bookings and progress through seperate documents and messages. this makes it difficult for learners to keep track of their outstanding work and for assessors to monitor learner activity and progress efficiently.
 
-The project will address this problem by developing a browser-based learner support portal that brings these activities together in one central system. The portal will allow learners to manage their tasks, book support sessions and view their progress, while providing assessors/administrators with appropriate access to learner support information.
+The project will address this problem by developing a browser based learner support portal that brings these activities together in one central system. The portal will allow learners to manage their tasks, book support sessions and view their progress, while providing assessors/administrators with appropriate access to learner support information.
 
 ## Project Scope
 

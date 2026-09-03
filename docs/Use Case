@@ -1,168 +1,272 @@
+## USE CASES — LEARNER SUPPORT PORTAL
+1. Use Case Diagram Actors
+The system has three actors:
 
-## 1. System
+Learner
+Registers on the system and uses the portal to manage learning activities and access support/resources.
 
-Learner Support Portal
+Assessor
+Logs in using credentials provided by the Admin and supports learners.
 
-## 2. Actors
+Admin
+Controls assessor account creation and system access.
 
-### Learner
+# Main Use Cases
+Learner
+Register Account
+Login
+Manage Tasks
+View Progress
+Access Learning Resources
+Search and Filter
+Request Support
+Play Educational Mini-Game
+Logout
 
-The learner uses the portal to manage learning activities, tasks, goals, support sessions and progress.
+Assessor
+Login
+View Learners
+Manage Learning Resources
+Support Learners
+Logout
 
-### Assessor / Administrator
+Admin
+Login
+Create Assessor Account
+Provide Assessor Credentials
+Manage Assessor Access
+Logout
 
-The assessor uses the portal to monitor learner activity and manage learner support activities.
+2. Use Case Specifications
+UC01 — Learner Registration
+Actor: Learner
+Goal: Create a learner account.
+Preconditions
+The learner does not already have an account.
+The registration page is available.
+Main Flow
+Learner opens the registration page.
+Learner enters the required personal/account information.
+Learner submits the registration form.
+System validates the information.
+System checks whether the account already exists.
+System creates the learner account.
+System confirms successful registration.
+Learner can proceed to login.
+Alternative Flow
+If required information is missing or invalid, the system displays an error message.
+If the account already exists, the system informs the learner and does not create a duplicate account.
+Postconditions
+A valid learner account has been created.
 
-## 3. Learner use cases
+UC02 — User Login
+Actors: Learner, Assessor, Admin
+Goal: Access the system using valid credentials.
+Preconditions
+The user has an active account.
+The user has valid login credentials.
+Main Flow
+User opens the login page.
+User enters their username/email and password.
+User selects Login.
+System validates the credentials.
+System authenticates the user.
+System opens the appropriate dashboard.
+Alternative Flow
+If the credentials are incorrect, the system displays an error message.
+The user can try logging in again.
+Postconditions
+The authenticated user is taken to the appropriate dashboard.
 
-We use UC to give each use case a unique ID.
+UC03 — Manage Tasks
+Actor: Learner
+Goal: Manage learning tasks.
+Preconditions
+Learner is logged in.
+Main Flow
+Learner opens the task section.
+System displays the learner's tasks.
+Learner can create a task.
+Learner enters the task information.
+System saves the task.
+Learner can update the task when necessary.
+Learner can mark a task as completed.
+Learner can choose to delete a task.
+System displays a confirmation message.
+Learner confirms the deletion.
+System removes the task.
+Alternative Flow
+If the learner cancels the deletion, the task remains unchanged.
+If task information is invalid, the system displays an error message.
+Postconditions
+The task information is successfully created, updated, completed or deleted.
+Important:
+Tasks do not include due dates, priority or overdue status.
 
-### UC-1 Register Account
+UC04 — View Progress
+Actor: Learner
+Goal: Monitor learning/task progress.
+Preconditions
+Learner is logged in.
+Learner has tasks or learning activities recorded in the system.
+Main Flow
+Learner opens the progress section.
+System retrieves the learner's task information.
+System calculates the percentage of completed tasks.
+System displays the learner's progress.
+Learner reviews their progress.
+Postconditions
+The learner can see their current progress.
+Progress calculation:
+Progress % = (Number of completed tasks ÷ Total number of tasks) × 100
+The system does not use points to calculate progress.
 
-**Actor:** Learner
-**Description:** The learner creates an account to access the learner support portal.
-**Precondition:** The learner does not already have an account.
+UC05 — Access Learning Resources
+Actors: Learner, Assessor
+Goal: Allow learners to access useful learning materials.
+Preconditions
+User is logged in.
+Learning resources are available.
+Main Flow
+Learner opens the Resources section.
+System displays available learning resources.
+Learner selects a resource.
+System displays or opens the resource.
+Learner uses the resource for learning.
+Assessor Flow
+Assessor logs in.
+Assessor opens the Resources section.
+Assessor adds or manages appropriate learning resources.
+System saves the changes.
+Resources become available to learners.
+Postconditions
+Learners can access available resources.
+Assessor-managed resources are stored in the system.
 
-**Main Flow:**
-1. Learner opens the registration page.
-2. Learner enters the required registration details.
-3. System validates the information.
-4. System creates the learner account.
-5. System displays a successful registration message.
-6. Learner can proceed to log in.
+UC06 — Search and Filter
+Actors: Learner, Assessor
+Goal: Find relevant information quickly.
+Preconditions
+User is logged in.
+Information is available in the relevant section.
+Main Flow
+User opens the relevant section.
+User enters a search term or selects a filter.
+System processes the search/filter.
+System displays matching results.
+User selects the required information.
+Alternative Flow
+If no matching results are found, the system displays a suitable message.
+Postconditions
+User can locate relevant information more easily.
 
-**Alternative Flow**
-- If required information is missing or invalid, the system displays an error message.
-- If the email address is already registered, the system informs the learner.
+UC07 — Request Learner Support
+Actor: Learner
+Supporting Actor: Assessor
+Goal: Allow learners to request assistance.
+Preconditions
+Learner is logged in.
+Main Flow
+Learner opens the Support section.
+Learner enters their support request.
+Learner submits the request.
+System records the request.
+Assessor accesses the support request.
+Assessor reviews the learner's request.
+Assessor provides appropriate assistance.
+System records the response where applicable.
+Alternative Flow
+If the support request is incomplete, the system asks the learner to provide the required information.
+Postconditions
+The support request has been submitted and can be handled by the Assessor.
 
-### UC-2 Login
+UC08 — Play Educational Mini-Game
+Actor: Learner
+Goal: Participate in an educational activity.
+Preconditions
+Learner is logged in.
+The mini-game is available.
+Main Flow
+Learner opens the Mini-Game section.
+System loads the game.
+Learner starts the game.
+System presents the game activity/questions.
+Learner interacts with the game.
+System processes the learner's answers/actions.
+System displays the result.
+Learner can choose to play again or return to the dashboard.
+Postconditions
+The learner completes an educational game session.
 
-**Actor:** Learner / Assessor
-**Description:** The user signs in to access the portal.
-**Precondition:** The user has a registered account.
+UC09 — Create Assessor Account
+Actor: Admin
+Goal: Create an account for an Assessor.
+Preconditions
+Admin is authenticated.
+Admin has permission to manage assessor accounts.
+Main Flow
+Admin logs into the system.
+Admin opens the Assessor Management section.
+Admin selects Create Assessor Account.
+Admin enters the required assessor information.
+System validates the information.
+System creates the assessor account.
+System generates/stores the assessor's login credentials.
+Admin provides the credentials to the Assessor.
+Alternative Flow
+If the information is invalid, the system displays an error.
+If an account already exists, the system prevents a duplicate account.
+Postconditions
+An Assessor account is created.
+The Assessor can use the provided credentials to log in.
+Important:
+The Assessor does not self-register.
 
-**Main Flow:**
-1. User enters their login details.
-2. System validates the details.
-3. System authenticates the user.
-4. System displays the appropriate dashboard (Learner Dashboard or Assessor Dashboard).
+UC10 — Manage Assessor Access
+Actor: Admin
+Goal: Control assessor access to the system.
+Preconditions
+Admin is logged in.
+An Assessor account exists.
+Main Flow
+Admin opens Assessor Management.
+System displays assessor accounts.
+Admin selects an assessor account.
+Admin reviews the account information.
+Admin can manage the assessor's access.
+System saves the changes.
+Postconditions
+Assessor access is updated according to the Admin's action.
 
-**Alternative Flow**
-- If the login details are incorrect, the system displays an error message.
+3. Use Case Relationship Summary
+Use Case
+Learner
+Assessor
+Admin
 
-### UC-3 Manage Learning Tasks
+Register
 
-**Actor:** Learner
-**Description:** The learner manages their learning tasks.
+Login
 
-**Main Flow:**
-1. Learner opens the task manager.
-2. Learner creates, views or edits a task.
-3. Learner can mark a task as completed.
-4. Learner can delete a task.
-5. System updates the task list.
+Manage Tasks
 
-**Alternative Flow**
-- Before deleting a task, the system displays a confirmation message.
-- If the learner cancels the deletion, the task remains unchanged.
+View Progress
 
-### UC-4 Manage Goals
+Access Resources
 
-**Actor:** Learner
-**Description:** The learner records and manages learning goals.
+Search & Filter
 
-**Main Flow:**
-1. Learner opens the goals section.
-2. Learner creates or updates a goal.
-3. System saves the goal.
-4. System displays the updated goal information.
+Request Support
 
-### UC-5 Book Support Session
+Provide Support
 
-**Actor:** Learner
-**Description:** The learner submits a request for a support session.
+Play Mini-Game
 
-**Main Flow:**
-1. Learner opens the support-session section.
-2. Learner enters the required booking information.
-3. System validates the information.
-4. System saves the booking request.
-5. System displays the booking status.
+Create Assessor Account
 
-**Alternative Flow:**
-- If required information is missing or invalid, the system displays an error message.
+Manage Assessor Access
 
-### UC-6 View Progress
+Logout
 
-**Actor:** Learner
-**Description:** The learner views their learning progress.
-
-**Main Flow:**
-1. Learner opens the dashboard.
-2. System retrieves the learner's task information.
-3. System calculates the learner's progress.
-4. System displays completed, outstanding and total tasks.
-5. Learner can view their progress summary.
-
-### UC-7 Access Learning Resources
-
-**Actor:** Learner
-**Description:** The learner accesses learning materials available through the portal.
-
-**Main Flow:**
-1. Learner opens the learning resources section.
-2. System displays available resources.
-3. Learner selects a resource.
-4. System displays or provides access to the selected resource.
-
-### UC-8 Play Coding Mini-Game
-
-**Actor:** Learner
-**Description:** The learner plays the coding mini-game as an interactive learning activity.
-
-**Main Flow:**
-1. Learner opens the mini-game.
-2. System loads the game.
-3. Learner interacts with the game.
-4. System processes the learner's actions.
-5. System displays the game result or score.
-
-
-## 4. Assessor / Administrator Use Cases
-
-### UC-9 View Learner Activity and Progress
-
-**Actor:** Assessor / Administrator
-**Description:** The assessor views relevant learner activity and progress.
-
-**Main Flow:**
-1. Assessor logs into the portal.
-2. Assessor accesses learner information.
-3. System displays relevant learner tasks and progress.
-4. Assessor reviews the information.
-
-
-### UC-10 Manage Support Bookings
-
-**Actor:** Assessor / Administrator
-**Description:** The assessor manages learner support-session bookings.
-
-**Main Flow:**
-1. Assessor opens support bookings.
-2. System displays submitted bookings.
-3. Assessor reviews a booking.
-4. Assessor updates the booking status.
-5. System saves the updated status.
-
-
-### UC-11 Upload Learning Materials
-
-**Actor:** Assessor / Administrator
-**Description:** The assessor uploads learning materials for learners to access.
-
-**Main Flow:**
-1. Assessor opens the learning-materials section.
-2. Assessor selects the material to upload.
-3. System validates the upload.
-4. System stores the material.
-5. The material becomes available to learners.
+Key System Rule:
+Only Learners register themselves. Assessors are registered/created by the Admin and receive their login credentials from the Admin.

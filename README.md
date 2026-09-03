@@ -2,7 +2,7 @@
 ## Learner Support Portal
 The learner support portal is a browser based application designed to help learners manage their learning tasks, track progress and access support
 
-## Project Objection
+## Project Objective
 The project aims to provide:
 -User registration and login
 -Task creation and management
