@@ -13,7 +13,7 @@ The project aims to provide:
 -Confirmation dialogs for important actions
 -Progress reporting
 
-##Technologies
+## Technologies
 -HTML
 -CSS
 -JavaScript
@@ -35,7 +35,7 @@ The project aims to provide:
 - Create task creation pseudocode
 - Assign project features to team members
   
-## Week 2
+## Week 2 - Environment, github and architecture
 - Configure VS Code
 - Configure code formatter
 - Configure JavaScript linter
@@ -57,7 +57,8 @@ The project aims to provide:
 - Plan DELETE request
 - Design JavaScript classes
 - Choose assessor-approved JavaScript game library
-## Week 3
+
+## Week 3 - Application foundation
 - Ceate the HTML applicatuin structure
 - Create CSS styking
 - Build navigation
@@ -70,13 +71,32 @@ The project aims to provide:
 - Build progress-summary interface
 - build game page
 - add javascript event listener
-- Add dynamic DOM reneringssss
+- Add dynamic DOM rendering
 - Implement arrays of task objections
 - Implement reuseable functions
 - Implement arrows functions
 - Implement loops
 - Implement conditional statements
 - add prototype
+
+#Week 4 -Browser features,Testing and review
+- Add cookie preference
+- Read saved cookies preference
+- Add delete confirmation dialog
+- add appropriate redirect
+- Add printable progress summary protype
+- Test application foundation
+- Record debugging issues
+- Fix and reset debugging issues
+- Record debbuging  issue
+- fix an restest debugging issues
+- Record debugging issues
+- Open one month pull request
+- complete peer reviews
+- prepare assessor review
+- Record assessor feedback
+- Write one month one reflection
+- Complete month one submssion.
 
 
 # Documentation

@@ -19,7 +19,7 @@ The learner support portal will include the following:
 8. A printable learner progress summary.
 9. An appropriate redirect within the application flow.
 10. A JavaScript driven animation and controlled multimedia element.
-11. A basic interactive codiing mini game.
+11. A basic interactive coding mini game.
 12. Firebase realtime database integration for storing and retrieving application data.
 13. REST API operations for working with Firebase data.
 14. Appropriate access for learners and assessors/administrators based on their roles.
