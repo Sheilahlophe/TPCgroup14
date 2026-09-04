@@ -76,7 +76,7 @@ Q1. Explain why programming life cycle should be followed before coding?
 - It helps developers to understand the problem and plan the solution, it saves time and reduces errors and make sure that the programme meets the users requirements.
 
 Q2. List and explain the main steps of the programmimg life cycle.
-- Problem analysis: Indentify the problems, users, objectives, inputs, outputs and liminations.
+- Problem analysis: Indentify the problems, users, objectives, inputs, outputs and limitations.
 - Requirements gathering: Determine exactly what the programe must do and define its acceptance criteria
 - Solution design: Plan the program's interface, date and logic using pseudocode, flowcharts or wireframes.
 - Coding: Convert the planned solution into a working code 
@@ -88,10 +88,10 @@ Q2. List and explain the main steps of the programmimg life cycle.
 Q3. Explain when const should be used instead of let. Also explain why var should normally be avoided in mordern Javascript.
 - Const should be use when a variable will not be reassigned after it has be declared. let should be used were a variable need be changed. var should normally can be avoided because it has function scope.
 
-Q4. Explain how local and global scope can affect the reability and maintanability of Javascript application
+Q4. Explain how local and global scope can affect the reliability and maintanability of Javascript application
 - Local variables can be accessed inside the function or block where they are declared, reducing naming conflicts and accidental changes. Global Variables can be accessed and modify from different parts of the application, making errors harder to locate.
 
-Q5. Explain how map(), filter(), and reduce() process an array of a task objects defferently. Provide one suitable for each.
+Q5. Explain how map(), filter(), and reduce() process an array of a task objects differently. Provide one suitable for each.
 - map() process every task and create a new array of transformed values.It can be used to create an array containing only task titles.
 -filter() create new arrays cointaining task to meet conditions, it can be used to select completed tasks.
 - reduce() combines all tasks into a single results. It can be used to calculate the total number of tasks
