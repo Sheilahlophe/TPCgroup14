@@ -1,22 +1,22 @@
 {
   "users": {
-    "studentDemo001": {
-      "email": "student@students-portal.example",
-      "displayName": "Demo Student",
+    "learnerDemo001": {
+      "email": "luciam@tpcstudents.co.za",
+      "displayName": "Lucia Ashler Mahlangu",
       "role": "learner",
       "createdAt": "2026-08-25T08:00:00.000Z"
     },
     "assessorDemo001": {
-      "email": "assessor@students-portal.example",
-      "displayName": "Demo Assessor",
+      "email": "LondekaZ@tpc.co.za",
+      "displayName": "Londeka Zikalala",
       "role": "assessor",
       "createdAt": "2026-08-25T08:00:00.000Z"
     }
   },
   "tasks": {
     "task001": {
-      "userId": "studentDemo001",
-      "title": "Complete HTML form validation",
+      "userId": "learnerDemo001",
+      "title": "Sign in to the portal",
       "category": "frontend",
       "dueDate": "2026-09-01",
       "priority": "high",
@@ -25,8 +25,8 @@
       "updatedAt": "2026-08-25T09:00:00.000Z"
     },
     "task002": {
-      "userId": "studentDemo001",
-      "title": "Review Firebase security rules",
+      "userId": "learnerDemo001",
+      "title": "Authenticate the user",
       "category": "backend",
       "dueDate": "2026-09-05",
       "priority": "medium",
@@ -37,7 +37,7 @@
   },
   "bookings": {
     "booking001": {
-      "learnerId": "studentDemo001",
+      "learnerId": "learnerDemo001",
       "assessorId": "assessorDemo001",
       "topic": "Help with task manager progress calculation",
       "preferredDate": "2026-08-28T15:00:00.000Z",
@@ -64,14 +64,14 @@
   },
   "gameScores": {
     "score001": {
-      "userId": "studentDemo001",
+      "userId": "learnerDemo001",
       "score": 120,
       "level": 2,
       "playedAt": "2026-08-24T16:20:00.000Z"
     }
   },
   "preferences": {
-    "studentDemo001": {
+    "learnerDemo001": {
       "theme": "light",
       "taskFilter": "all"
     }
