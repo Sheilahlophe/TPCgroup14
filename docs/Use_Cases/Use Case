@@ -56,7 +56,7 @@ Learner can proceed to login.
 Alternative Flow
 If required information is missing or invalid, the system displays an error message.
 If the account already exists, the system informs the learner and does not create a duplicate account.
-Postconditions
+Post conditions
 A valid learner account has been created.
 
 UC02 — User Login
@@ -75,7 +75,7 @@ System opens the appropriate dashboard.
 Alternative Flow
 If the credentials are incorrect, the system displays an error message.
 The user can try logging in again.
-Postconditions
+Post conditions
 The authenticated user is taken to the appropriate dashboard.
 
 UC03 — Manage Tasks
@@ -98,7 +98,7 @@ System removes the task.
 Alternative Flow
 If the learner cancels the deletion, the task remains unchanged.
 If task information is invalid, the system displays an error message.
-Postconditions
+Post conditions
 The task information is successfully created, updated, completed or deleted.
 Important:
 Tasks do not include due dates, priority or overdue status.
@@ -115,7 +115,7 @@ System retrieves the learner's task information.
 System calculates the percentage of completed tasks.
 System displays the learner's progress.
 Learner reviews their progress.
-Postconditions
+Post conditions
 The learner can see their current progress.
 Progress calculation:
 Progress % = (Number of completed tasks ÷ Total number of tasks) × 100
@@ -139,7 +139,7 @@ Assessor opens the Resources section.
 Assessor adds or manages appropriate learning resources.
 System saves the changes.
 Resources become available to learners.
-Postconditions
+Post conditions
 Learners can access available resources.
 Assessor-managed resources are stored in the system.
 
@@ -157,7 +157,7 @@ System displays matching results.
 User selects the required information.
 Alternative Flow
 If no matching results are found, the system displays a suitable message.
-Postconditions
+Post conditions
 User can locate relevant information more easily.
 
 UC07 — Request Learner Support
@@ -177,7 +177,7 @@ Assessor provides appropriate assistance.
 System records the response where applicable.
 Alternative Flow
 If the support request is incomplete, the system asks the learner to provide the required information.
-Postconditions
+Post conditions
 The support request has been submitted and can be handled by the Assessor.
 
 UC08 — Play Educational Mini-Game
@@ -195,7 +195,7 @@ Learner interacts with the game.
 System processes the learner's answers/actions.
 System displays the result.
 Learner can choose to play again or return to the dashboard.
-Postconditions
+Post conditions
 The learner completes an educational game session.
 
 UC09 — Create Assessor Account
@@ -216,7 +216,7 @@ Admin provides the credentials to the Assessor.
 Alternative Flow
 If the information is invalid, the system displays an error.
 If an account already exists, the system prevents a duplicate account.
-Postconditions
+Post conditions
 An Assessor account is created.
 The Assessor can use the provided credentials to log in.
 Important:
@@ -235,7 +235,7 @@ Admin selects an assessor account.
 Admin reviews the account information.
 Admin can manage the assessor's access.
 System saves the changes.
-Postconditions
+Post conditions
 Assessor access is updated according to the Admin's action.
 
 3. Use Case Relationship Summary

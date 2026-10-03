@@ -5,7 +5,7 @@
 3. As a Learner I want to book and view my support sessions, so that I don't miss them.
 4. As a Learner I want to make goal records and view them on the learner dashboard.
 6. As a Learner I want to play a mini game.
-6. As an Assessor I want to view bookings and upade their statuses.
+6. As an Assessor I want to view bookings and update their statuses.
 7. As an Assessor I want to view learner tasks and progress.
 8. As an Assessor I want to be able to upload learning materials on the dashboard.
 
@@ -68,7 +68,7 @@
 - The learner receives a score after completing the game.
 - The learner can restart or play the game again.
 
-6. As an Assessor I want to view bookings and upade their statuses.
+6. As an Assessor I want to view bookings and update their statuses.
 # Acceptance Criteria
 - An Assessor Bookings page is available on the assessor dashboard.
 - The assessor can view all learner bookings.

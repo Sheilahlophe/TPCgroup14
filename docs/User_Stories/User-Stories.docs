@@ -90,7 +90,7 @@ The Assessor can update the booking status where permitted.
 The system saves the updated status.
 The updated status is displayed to the relevant Learner.
 The Assessor can view relevant learner activity according to their permissions.
-The Assessor cannot access information outside their authorised role.
+The Assessor cannot access information outside their authorized role.
 This follows the brief's defined Assessor access.
 
 # US07 — Search and Filter Tasks
@@ -107,7 +107,7 @@ This is important because the brief specifically requires search, filter or sort
 
 # US08 — Learning Resources and Mini-Game
 User Story
-As a Learner, I want to access learning resources and play a short coding game so that I can support and practise my learning.
+As a Learner, I want to access learning resources and play a short coding game so that I can support and practice my learning.
 Acceptance Criteria
 The Learner can access available learning resources.
 Resources display relevant information such as title and description.
@@ -128,7 +128,7 @@ The Assessor can select a resource type, such as document, link or guide.
 The Assessor can provide a description.
 The Assessor can assign a category.
 The resource is saved to the database.
-Only an authorised Assessor can add, edit or delete resources.
+Only an authorized Assessor can add, edit or delete resources.
 Learners can view available resources.
 Learners can open/access the resources.
 Learners cannot modify or delete resources.
