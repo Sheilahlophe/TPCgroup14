@@ -3,6 +3,7 @@
 
 *1995* - JavaScript was created by Brendan Each at Netscape, It took him 10 days to build it. The original name was Mocha, then LiveScript the later to JavaScript.
 
+
 *1997* - ECMAScrip 1 (ES1)- first official standard, published by ECMA International
 
 *2009* - ECMAScript 5 (ES5)
@@ -189,8 +190,8 @@ d.Write a JavaScript statement that displays the available cookies.
 Q16. A registration form contains name, email address, password and age fields. Develop five test cases for the form. Include the input or condition and the expected result.
 
 Test case	Input or condition	Expected result
-Valid submission	Name: Lerato; email: lerato@example.com; password: Secure123; age: 25	Registration succeeds and a success message is displayed.
+Valid submission	Name: Sheila; email: sheila@example.com; password: Secure123; age: 25	Registration succeeds and a success message is displayed.
 Missing value	Leave the name field empty while all other fields are valid.	Submission is rejected and “Name is required” is displayed.
-Invalid email	Enter leratoexample.com as the email address.	Submission is rejected and an invalid-email message is displayed.
+Invalid email	Enter sheila-example.com as the email address.	Submission is rejected and an invalid-email message is displayed.
 Boundary value	Enter the minimum permitted age, such as 18.	The age is accepted if 18 is the stated minimum age.
 Invalid password	Enter a password shorter than the required minimum, such as abc.	Submission is rejected and a password-requirement message is displayed
