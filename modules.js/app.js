@@ -8,7 +8,7 @@ import { add } from "./math.js";
 console.log (add(2,3));
 
 {
-    "type": "module"
+    "type"; "module"
 }
 
 import lodash from "lodash";

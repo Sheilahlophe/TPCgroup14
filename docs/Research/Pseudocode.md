@@ -41,7 +41,7 @@ Admin logs into Admin area
 
 INPUT Assessor name
 INPUT Assessor email
-GENERATE or SET authorised credentials
+GENERATE or SET authorized credentials
 
 Validate Assessor information
 
@@ -73,15 +73,15 @@ ELSE
     IF authentication fails THEN
         Display "Invalid login credentials"
     ELSE
-        Retrieve authorised account information
+        Retrieve authorized account information
 
-        IF account is authorised as Learner THEN
+        IF account is authorized as Learner THEN
             Redirect to Learner Dashboard
 
-        ELSE IF account is authorised as Assessor THEN
+        ELSE IF account is authorized as Assessor THEN
             Redirect to Assessor Dashboard
 
-        ELSE IF account is authorised as Admin THEN
+        ELSE IF account is authorized as Admin THEN
             Redirect to Admin area
 
         ELSE
@@ -320,8 +320,8 @@ Assessor logs in
 
 Verify Assessor access
 
-IF access is authorised THEN
-    Retrieve authorised support requests
+IF access is authorized THEN
+    Retrieve authorized support requests
 
     Display support requests
 
@@ -382,7 +382,7 @@ Assessor opens Resource Management
 
 Verify Assessor access
 
-IF access is authorised THEN
+IF access is authorized THEN
 
     INPUT resource title
     INPUT resource type
@@ -421,7 +421,7 @@ Assessor selects resource
 
 Verify Assessor access
 
-IF access is authorised THEN
+IF access is authorized THEN
 
     Display existing resource information
 
@@ -458,7 +458,7 @@ ELSE IF Assessor confirms deletion THEN
 
     Verify Assessor access
 
-    IF access is authorised THEN
+    IF access is authorized THEN
         Delete resource from database
         Display "Resource deleted successfully"
     ELSE

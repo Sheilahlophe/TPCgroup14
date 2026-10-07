@@ -1,7 +1,8 @@
 *JavaScript Timeline and Console Demo*
 *Part A - Annotated JavaScript Timeline*
 
-*1995* - JavaScript was created by Brendan Eich at Netscape, It took him 10 days to build it. The original name was Mocha, then LiveScript the later to JavaScript.
+*1995* - JavaScript was created by Brendan Each at Netscape, It took him 10 days to build it. The original name was Mocha, then LiveScript the later to JavaScript.
+
 
 *1997* - ECMAScrip 1 (ES1)- first official standard, published by ECMA International
 
@@ -15,7 +16,7 @@
 *Activity 2* 
 *Part A - Architecture Investigation*
 1. What is Client side development, and where does client side code execute?
-Client side development is the part of an application that runs inside the user's own web browser rather than on the remote machine. It covers the HTML structure, CSS styling and the JavaScript logic that control what the learner sees and interacts with. In skilltrack, everything the learner directly experiences the dashboard layout, the task form, button clicks, form validation feedback, DOM updates when tsks is added, it executes on the learner's own device, inside the browser's JavaScript engine. No server is required to render this part of the interface.
+Client side development is the part of an application that runs inside the user's own web browser rather than on the remote machine. It covers the HTML structure, CSS styling and the JavaScript logic that control what the learner sees and interacts with. In skill-track, everything the learner directly experiences the dashboard layout, the task form, button clicks, form validation feedback, DOM updates when tasks is added, it executes on the learner's own device, inside the browser's JavaScript engine. No server is required to render this part of the interface.
 
 2. *What is server side development, and how is it different from code executing in the browser.*
 Server side development is code that run on the remote machine (a server or cloud service) rather than the user's device. It handle things the browser should not be trusted with or cannot do alone: like storing data permanently, verifying identity, enforcing business rules and security restrictions, and responding to requests from many different clients at once. The key difference is trust and location. Client side code is visible and editable by anyone using browser developer tools, so it can not be relied on to enforce security. Server side code is not directly visible or editable by the user. It receives requests over the network and decides whether to allow them based on rules the learner cannot bypass from the browser console.
@@ -26,7 +27,7 @@ Server side development is code that run on the remote machine (a server or clou
 Defines the structure of each screen the dashboard, task form, booking form, login page.
 
 * CSS
-Controls the visual presentation layout, theme and responsive behaviour.
+Controls the visual presentation layout, theme and responsive behavior.
 
 * JavaScript
 Runs entirely client side, handles form validation, event listeners, DOM updates, progress calculations, the mini game logic and building the HTTP requests sent to firebase. 
@@ -38,9 +39,9 @@ A server side/cloud service that verifies learner identity, issues session token
 The cloud hosted data store. Hold users, tasks, booking, scores and resources records. All persistent data lives here, not in the browser.
 
 * Firebase REST API 
-The communication layer bettwen the browser and the database. The client side JavaScript sends GET/POST/PUT/PATCH/DELETE HTTP requests to firebase's REST endpoints to read or write data, including an auth token so Firebase's security rules can check permissions.
+The communication layer between the browser and the database. The client side JavaScript sends GET/POST/PUT/PATCH/DELETE HTTP requests to firebase's REST endpoints to read or write data, including an auth token so Firebase's security rules can check permissions.
 
-4. *Is Firebase the same thing as serverside JavaScript? Explain your answer.*
+4. *Is Firebase the same thing as server side JavaScript? Explain your answer.*
 No.
 Firebase is a Backend-as-a-Service (BaaS), a set of pre-built cloud services that SkillTrack consumes over HTTP, rather than a server that the team writes and runs JavaScrip code on. Firebase provides server side functionality without requiring the team to build or run a traditional server side application.
 
@@ -49,7 +50,7 @@ Firebase is a Backend-as-a-Service (BaaS), a set of pre-built cloud services tha
 - Client-side (In the browser)
 * The learner fills in the task form
 * JavaScript validate the input, build a task object and construct an HTTP POST request
-* On a successful responce, JavaScript update the DOM to show the new task without reloading the page.
+* On a successful response, JavaScript update the DOM to show the new task without reloading the page.
 
 - Server- side
 * Firebase Authentication confirms the request includes a valid token for a signed in user
@@ -62,10 +63,10 @@ Client side JavaScript is fully visible and editable by anyone using their brows
 This is why SkillTrack's real security boundary must sit in Firebase's security rules and authentication service enforced server-side, where the user cannot alter or bypass it. 
 
 7. *Two alternative backend/server side technologies instead of Firebase* 
-Supabase and AWS Amplify
+Super-base and AWS Amplify
 
 8. *Three security risks of misplacing sensitive logic or data in client side JavaScript*
-- Exposed or bypassable business rules
+- Exposed or by-passable business rules
 - Data exposure through unrestricted read access.
 - Credential or secret leakage.
 
@@ -75,32 +76,32 @@ Supabase and AWS Amplify
 Q1. Explain why programming life cycle should be followed before coding?
 - It helps developers to understand the problem and plan the solution, it saves time and reduces errors and make sure that the programme meets the users requirements.
 
-Q2. List and explain the main steps of the programmimg life cycle.
-- Problem analysis: Indentify the problems, users, objectives, inputs, outputs and limitations.
-- Requirements gathering: Determine exactly what the programe must do and define its acceptance criteria
-- Solution design: Plan the program's interface, date and logic using pseudocode, flowcharts or wireframes.
+Q2. List and explain the main steps of the programming life cycle.
+- Problem analysis: Identify the problems, users, objectives, inputs, outputs and limitations.
+- Requirements gathering: Determine exactly what the programme must do and define its acceptance criteria
+- Solution design: Plan the program's interface, date and logic using pseudocode, flowcharts or Wire frames.
 - Coding: Convert the planned solution into a working code 
 - Testing and debugging: Test the program with different inputs, identify errors and correct
 - Implementation: Deploy or release the completed program so users can use it.
-- Documentantion: Record how the program works and provide instructions for users and developers
-- Maintance: Fix all the problems, errors and improve perfomance.
+- Documentation: Record how the program works and provide instructions for users and developers
+- Maintenance: Fix all the problems, errors and improve performance.
 
-Q3. Explain when const should be used instead of let. Also explain why var should normally be avoided in mordern Javascript.
+Q3. Explain when const should be used instead of let. Also explain why var should normally be avoided in modern Javascript.
 - Const should be use when a variable will not be reassigned after it has be declared. let should be used were a variable need be changed. var should normally can be avoided because it has function scope.
 
-Q4. Explain how local and global scope can affect the reliability and maintanability of Javascript application
+Q4. Explain how local and global scope can affect the reliability and maintainability of Javascript application
 - Local variables can be accessed inside the function or block where they are declared, reducing naming conflicts and accidental changes. Global Variables can be accessed and modify from different parts of the application, making errors harder to locate.
 
 Q5. Explain how map(), filter(), and reduce() process an array of a task objects differently. Provide one suitable for each.
 - map() process every task and create a new array of transformed values.It can be used to create an array containing only task titles.
--filter() create new arrays cointaining task to meet conditions, it can be used to select completed tasks.
+-filter() create new arrays containing task to meet conditions, it can be used to select completed tasks.
 - reduce() combines all tasks into a single results. It can be used to calculate the total number of tasks
 
 Q6. Explain why an application should use classes or structured objects instead of storing related information in several unrelated variables.
 - Classes and structured objects keep related information together.
 
 Q7. Explain how branches, pull requests and automated checks reduce risk when developers collaborate in the projects
-- Branches allow each developer to work on a new features withouth directly changing the stable main code. Pull requests allow team members to review and discuss changes before merging them. Automated checks run tests and code-quality checks automatically.
+- Branches allow each developer to work on a new features without directly changing the stable main code. Pull requests allow team members to review and discuss changes before merging them. Automated checks run tests and code-quality checks automatically.
 
 Q8. a. State the data type of each value
 - UserName is a string
@@ -116,10 +117,10 @@ Q9. a. State the output of each statement
 - false
 
 b. Explain why "10" + 5 does not produce number 15
-- "10" is a string, when + operator is used with a string and number Js convers the number ito the string an jions the value.
+- "10" is a string, when + operator is used with a string and number Js covers the number into the string and joins the value.
 
 c. Explain the difference between == and ===
-== Compares values allows jsto convert their data types, === compares both values and their data types withot perfoming type conversion.
+== Compares values allows js to convert their data types, === compares both values and their data types without performing type conversion.
 
 d. Rewrite the first statement so it ca produce 15
 const total = Number("10") + 5;
@@ -189,8 +190,8 @@ d.Write a JavaScript statement that displays the available cookies.
 Q16. A registration form contains name, email address, password and age fields. Develop five test cases for the form. Include the input or condition and the expected result.
 
 Test case	Input or condition	Expected result
-Valid submission	Name: Lerato; email: lerato@example.com; password: Secure123; age: 25	Registration succeeds and a success message is displayed.
+Valid submission	Name: Sheila; email: sheila@example.com; password: Secure123; age: 25	Registration succeeds and a success message is displayed.
 Missing value	Leave the name field empty while all other fields are valid.	Submission is rejected and “Name is required” is displayed.
-Invalid email	Enter leratoexample.com as the email address.	Submission is rejected and an invalid-email message is displayed.
+Invalid email	Enter sheila-example.com as the email address.	Submission is rejected and an invalid-email message is displayed.
 Boundary value	Enter the minimum permitted age, such as 18.	The age is accepted if 18 is the stated minimum age.
 Invalid password	Enter a password shorter than the required minimum, such as abc.	Submission is rejected and a password-requirement message is displayed
