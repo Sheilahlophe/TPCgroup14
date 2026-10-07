@@ -124,18 +124,18 @@ Changes will be reviewed through pull requests before being merged into the main
 ```text
 TPCgroup14/
 │
-├── assets/
-├── database/          # Realtime DB schema + security rules (Students Portal)
+├── frontend/          # Browser UI (HTML, CSS, JavaScript)
+│   ├── js/
+│   │   ├── firebase-config.js   # Firebase project: student-s-portal-f5d1d
+│   │   └── database.js          # REST API helpers
+│   ├── modules.js/
+│   └── jsFundamentalsChallanges/
+├── backend/           # Firebase Realtime DB schema + security rules
+│   ├── database.rules.json
+│   └── schema.json
 ├── docs/
-├── presentation/
-├── src/
-│   └── js/
-│       ├── firebase-config.js   # Firebase project: student-s-portal-f5d1d
-│       └── database.js          # REST API helpers
 ├── .firebaserc
-├── firebase.json
+├── firebase.json      # Hosting public folder: frontend/
 ├── .gitignore
-├── CHANGELOG.md
-├── LICENSE
 └── README.md
 ```

@@ -7,7 +7,7 @@ import { firebaseConfig } from "./firebase-config.js";
 const baseUrl = () => {
   const url = firebaseConfig.databaseURL?.replace(/\/$/, "");
   if (!url) {
-    throw new Error("Missing databaseURL in src/js/firebase-config.js");
+    throw new Error("Missing databaseURL in frontend/js/firebase-config.js");
   }
   return url;
 };
