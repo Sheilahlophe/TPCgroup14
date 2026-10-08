@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Page title shown in the browser tab -->
+  <title>Learner Support System | Assessor Dashboard</title>
+
+  <!-- Connects the page to the main stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- The application content will be loaded into this container -->
+  <div id="app"></div>
+
+  <script type="module">
+
+    // Import functions used to protect the page and create the dashboard layout
+    import { requireAuth, renderShell } from "./js/app.js";
+
+    // Import the function that loads the assessor dashboard features
+    import { initAssessor } from "./js/assessor.js";
+
+    // Only allow users who are logged in as an assessor to access this page
+    requireAuth("assessor");
+
+    // Load the common layout for the assessor portal
+    renderShell("assessor");
+
+    // Start the assessor dashboard
+    initAssessor();
+
+  </script>
+</body>
+</html>

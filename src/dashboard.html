@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Page title shown in the browser tab -->
-  <title>Learner Support System | Support Booking</title>
+  <title>Learner Support System | Dashboard</title>
 
   <!-- Connects the page to the main stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -13,7 +13,7 @@
 
 <body>
 
-  <!-- The booking page content will be loaded into this container -->
+  <!-- The dashboard content will be loaded into this container -->
   <div id="app"></div>
 
   <script type="module">
@@ -21,17 +21,17 @@
     // Import functions used to protect the page and create the portal layout
     import { requireAuth, renderShell } from "./js/app.js";
 
-    // Import the function that loads the support booking features
-    import { initBooking } from "./js/booking.js";
+    // Import the function that loads the learner dashboard
+    import { initDashboard } from "./js/dashboard.js";
 
-    // Only allow logged-in learners to access the booking page
+    // Only allow logged-in learners to access the dashboard
     requireAuth("learner");
 
     // Load the common learner portal layout
-    renderShell("booking");
+    renderShell("dashboard");
 
-    // Start the support booking functionality
-    initBooking();
+    // Start the learner dashboard functionality
+    initDashboard();
 
   </script>
 </body>

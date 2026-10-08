@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Set the character encoding for the page -->
+  <meta charset="UTF-8">
+
+  <!-- Make the page responsive on different screen sizes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Page title shown in the browser tab -->
+  <title>Learner Support System | Tasks</title>
+
+  <!-- Connect the page to the main stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- The task page content will be loaded into this container -->
+  <div id="app"></div>
+
+
+  <script type="module">
+
+    // Import functions used to check authentication and create the portal layout
+    import { requireAuth, renderShell } from "./js/app.js";
+
+    // Import the function that loads the task functionality
+    import { initTasks } from "./js/tasks.js";
+
+
+    // Only allow logged-in learners to access the task page
+    requireAuth("learner");
+
+    // Load the common learner portal layout and mark Tasks as the active page
+    renderShell("tasks");
+
+    // Start the task management functionality
+    initTasks();
+
+  </script>
+
+</body>
+</html>

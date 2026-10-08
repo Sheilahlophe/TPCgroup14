@@ -1,45 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Set the character encoding for the page -->
   <meta charset="UTF-8">
+
+  <!-- Make the page responsive on different screen sizes -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Page title shown in the browser tab -->
   <title>Learner Support System | Login</title>
+
+  <!-- Connect the page to the main stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="auth-page">
+
+  <!-- Main container for the login and registration area -->
   <main class="auth-shell">
+
+    <!-- Branding section of the login page -->
     <section class="auth-brand">
+
+      <!-- Short logo/brand mark -->
       <div class="brand-mark">LS</div>
+
+      <!-- Name of the system -->
       <h1>Learner Support System</h1>
+
+      <!-- Short description of what the system provides -->
       <p>Manage learning tasks, support sessions, resources and progress in one place.</p>
+
     </section>
 
+
+    <!-- Login and registration card -->
     <section class="auth-card">
+
+      <!-- Buttons used to switch between login and registration -->
       <div class="tabs">
+
+        <!-- Login tab is active when the page opens -->
         <button class="tab active" data-tab="login">Sign In</button>
+
+        <!-- Registration tab -->
         <button class="tab" data-tab="register">Register</button>
+
       </div>
 
+
+      <!-- Area used to display login or registration messages -->
       <div id="message" class="message hidden"></div>
 
+
+      <!-- Login form -->
       <form id="loginForm" class="auth-form">
+
+        <!-- Login form heading -->
         <h2>Welcome back</h2>
-        <label>Email<input id="loginEmail" type="email" required autocomplete="email"></label>
-        <label>Password<input id="loginPassword" type="password" required autocomplete="current-password"></label>
+
+        <!-- Learner enters their email address -->
+        <label>
+          Email
+          <input
+            id="loginEmail"
+            type="email"
+            required
+            autocomplete="email"
+          >
+        </label>
+
+        <!-- Learner enters their password -->
+        <label>
+          Password
+          <input
+            id="loginPassword"
+            type="password"
+            required
+            autocomplete="current-password"
+          >
+        </label>
+
+        <!-- Submit the login form -->
         <button class="btn primary full" type="submit">Sign In</button>
+
       </form>
 
+
+      <!-- Registration form, hidden until the Register tab is selected -->
       <form id="registerForm" class="auth-form hidden">
+
+        <!-- Registration form heading -->
         <h2>Create learner account</h2>
-        <p class="muted">New accounts are created as Learners. Assessor accounts must be provisioned by an administrator.</p>
-        <label>Full name<input id="registerName" type="text" minlength="2" maxlength="100" required autocomplete="name"></label>
-        <label>Email<input id="registerEmail" type="email" required autocomplete="email"></label>
-        <label>Password<input id="registerPassword" type="password" minlength="6" required autocomplete="new-password"></label>
-        <label>Confirm password<input id="registerConfirm" type="password" minlength="6" required autocomplete="new-password"></label>
+
+        <!-- Explain that new accounts are created as learners -->
+        <p class="muted">
+          New accounts are created as Learners. Assessor accounts must be provisioned by an administrator.
+        </p>
+
+        <!-- Learner enters their full name -->
+        <label>
+          Full name
+          <input
+            id="registerName"
+            type="text"
+            minlength="2"
+            maxlength="100"
+            required
+            autocomplete="name"
+          >
+        </label>
+
+        <!-- Learner enters their email address -->
+        <label>
+          Email
+          <input
+            id="registerEmail"
+            type="email"
+            required
+            autocomplete="email"
+          >
+        </label>
+
+        <!-- Learner creates a password -->
+        <label>
+          Password
+          <input
+            id="registerPassword"
+            type="password"
+            minlength="6"
+            required
+            autocomplete="new-password"
+          >
+        </label>
+
+        <!-- Learner confirms their password -->
+        <label>
+          Confirm password
+          <input
+            id="registerConfirm"
+            type="password"
+            minlength="6"
+            required
+            autocomplete="new-password"
+          >
+        </label>
+
+        <!-- Submit the registration form -->
         <button class="btn primary full" type="submit">Create Account</button>
+
       </form>
+
     </section>
+
   </main>
+
+
+  <!-- Connect the page to the JavaScript authentication file -->
   <script type="module" src="js/auth.js"></script>
+
 </body>
 </html>

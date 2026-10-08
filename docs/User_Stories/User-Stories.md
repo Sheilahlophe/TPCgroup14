@@ -1,135 +1,51 @@
-## User Stories and Acceptance Criteria
+# User Stories
 
-# US01 — Learner Registration and Login
-User Story
-As a Learner, I want to register an account and sign in securely so that I can access my personal Learner Dashboard.
-Acceptance Criteria
-A Learner can enter their name, email and password.
-The system validates the required registration fields.
-The system validates the email format.
-The password and confirmation password must match.
-A Learner cannot register using an email that is already registered.
-The system creates the account using Firebase Authentication.
-The user's profile and role are stored in the users/{uid} database path.
-A registered Learner can sign in using their email and password.
-Invalid login details display an appropriate error message.
-After successful login, the Learner is redirected to the Learner Dashboard.
-A Learner can sign out.
-Personal features cannot be accessed when the user is not authenticated.
-This directly supports the required registration, sign-in, sign-out and authenticated-user functionality. 
+## Learner
 
-# US02 — Task Management
-User Story
-As a Learner, I want to create, view, update and complete my learning tasks so that I can manage my work and track what I need to do.
-Acceptance Criteria
-The Learner can create a new task.
-The Learner can enter a task title.
-The Learner can enter a task description.
-The Learner can select a category.
-The Learner can select a priority.
-The Learner can enter a due date.
-The task is saved to Firebase.
-The Learner can view their own tasks.
-The Learner can update a task.
-The Learner can change a task's status.
-The system displays appropriate feedback after saving or updating a task.
-A Learner cannot access another Learner's tasks.
-This matches the required task CRUD functionality. 
+- As a learner, I want to create an account so that I can use the Learner Support System.
 
-# US03 — Task Deletion
-User Story
-As a Learner, I want to delete a task after confirming the deletion so that I can remove tasks that I no longer need.
-Acceptance Criteria
-A delete option is available for each Learner's task.
-The system displays a confirmation dialog before deletion.
-The confirmation identifies that the task will be deleted.
-If the Learner selects Cancel, the task remains.
-If the Learner selects Confirm/Delete, the task is removed from Firebase.
-The task disappears from the task list after successful deletion.
-An appropriate success or error message is displayed.
-The Learner cannot delete another Learner's task.
+- As a learner, I want to log in so that I can access my account.
 
-# US04 — Progress Calculation
-User Story
-As a Learner, I want to see my task progress on my dashboard so that I can understand how much of my work I have completed.
-Acceptance Criteria
-The dashboard displays the total number of tasks.
-The system counts completed tasks.
-The system counts outstanding tasks.
-The system identifies overdue tasks where applicable.
-The system calculates the Learner's progress percentage.
-The calculation is based on the Learner's actual task data.
-The progress is updated when a task's status changes.
-The progress is displayed dynamically on the dashboard.
-The Learner can print a progress summary.
-The brief specifically requires completed, outstanding and overdue work to be calculated from task data.
+- As a learner, I want to see my dashboard so that I can view my tasks and progress.
 
-# US05 — Support Session Booking
-User Story
-As a Learner, I want to request a support session so that I can receive assistance with my learning.
-Acceptance Criteria
-The Learner can access the support-session booking section.
-The Learner can enter/select the required session information.
-Required fields must be completed before submission.
-The system validates the booking information.
-The booking is saved to Firebase.
-The booking has an appropriate status, such as Pending.
-The Learner receives confirmation after submitting the booking.
-An appropriate error message is displayed if the booking cannot be submitted.
-The Learner can view their submitted support requests.
-The brief requires a validated support-session booking form with status feedback.
+- As a learner, I want to create tasks so that I can keep track of my work.
 
-# US06 — Assessor Booking and Learner Progress
-User Story
-As an Assessor, I want to view learner support bookings and relevant learner activity so that I can monitor learners and manage their support requests.
-Acceptance Criteria
-The Assessor can access the Assessor Dashboard after authentication.
-The Assessor can view submitted support bookings.
-The booking displays relevant information such as learner, topic, date and status.
-The Assessor can update the booking status where permitted.
-The system saves the updated status.
-The updated status is displayed to the relevant Learner.
-The Assessor can view relevant learner activity according to their permissions.
-The Assessor cannot access information outside their authorized role.
-This follows the brief's defined Assessor access.
+- As a learner, I want to edit my tasks so that I can change the task information when needed.
 
-# US07 — Search and Filter Tasks
-User Story
-As a Learner, I want to search and filter my tasks so that I can quickly find the work I need.
-Acceptance Criteria
-The Learner can search for a task.
-The system displays matching tasks.
-The Learner can filter tasks by relevant criteria such as status or priority.
-The task list updates according to the selected filter.
-Searching/filtering does not modify the stored task data.
-JavaScript array methods such as filter() are used to process the task data.
-This is important because the brief specifically requires search, filter or sort functionality using arrays and higher-order functions.
+- As a learner, I want to mark tasks as completed so that I can keep track of my progress.
 
-# US08 — Learning Resources and Mini-Game
-User Story
-As a Learner, I want to access learning resources and play a short coding game so that I can support and practice my learning.
-Acceptance Criteria
-The Learner can access available learning resources.
-Resources display relevant information such as title and description.
-The Learner can open an available resource.
-The Learner can access the mini-game.
-The game is playable.
-The game provides a meaningful outcome or score.
-The result can be stored in Firebase.
-The Learner can return to the dashboard after using the feature.
+- As a learner, I want to delete tasks so that I can remove tasks that I no longer need.
 
-# US09 — Manage Learning Resources
-As an Assessor, I want to upload and manage learning materials/resources so that Learners can access useful materials to support their learning.
-Acceptance Criteria
-The Assessor can access the learning resources management section.
-The Assessor can upload/add a learning resource.
-The Assessor can provide a title for the resource.
-The Assessor can select a resource type, such as document, link or guide.
-The Assessor can provide a description.
-The Assessor can assign a category.
-The resource is saved to the database.
-Only an authorized Assessor can add, edit or delete resources.
-Learners can view available resources.
-Learners can open/access the resources.
-Learners cannot modify or delete resources.
-An appropriate success or error message is displayed after an upload/add operation.
+- As a learner, I want to search for tasks so that I can find a task easily.
+
+- As a learner, I want to filter my tasks by status and priority so that I can organise my tasks.
+
+- As a learner, I want to book a support session so that I can get help from an assessor.
+
+- As a learner, I want to view learning resources so that I can get extra material to help me learn.
+
+- As a learner, I want to play the JavaScript quiz game so that I can practise my programming skills.
+
+- As a learner, I want to see my progress so that I can know how many tasks I have completed.
+
+- As a learner, I want to print my progress so that I can keep a copy of my progress.
+
+- As a learner, I want to log out so that my account is secure.
+
+## Assessor
+
+- As an assessor, I want to log in with my provided details so that I can access the assessor dashboard.
+
+- As an assessor, I want to view learner support bookings so that I can see which learners need help.
+
+- As an assessor, I want to update the booking status so that learners can know the status of their support request.
+
+- As an assessor, I want to add learning resources so that learners can access useful learning material.
+
+- As an assessor, I want to view learning resources so that I can manage the resources available to learners.
+
+- As an assessor, I want to delete learning resources when they are no longer needed.
+
+- As an assessor, I want to see the number of learners so that I can keep track of the learners using the system.
+
+- As an assessor, I want to log out so that my account is secure.

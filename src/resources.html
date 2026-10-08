@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Set the character encoding for the page -->
+  <meta charset="UTF-8">
+
+  <!-- Make the page responsive on different screen sizes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Page title shown in the browser tab -->
+  <title>Learner Support System | Resources</title>
+
+  <!-- Connect the page to the main stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- The portal content will be loaded into this container -->
+  <div id="app"></div>
+
+
+  <script type="module">
+
+    // Import functions used to check authentication and create the portal layout
+    import { requireAuth, renderShell } from "./js/app.js";
+
+    // Import the function that loads the resources page
+    import { initResources } from "./js/resources.js";
+
+
+    // Check that the user is logged in before accessing the page
+    requireAuth();
+
+    // Load the common portal layout and mark Resources as the active page
+    renderShell("resources");
+
+    // Start the resources page functionality
+    initResources();
+
+  </script>
+
+</body>
+</html>
