@@ -1,4 +1,5 @@
 :root {
+  /* Shared colors, spacing, and shadows used throughout the site. */
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
   --surface: #ffffff;
@@ -13,6 +14,7 @@
   --radius: 16px;
 }
 
+/* Set the default sizing, font, colors, and basic element behavior. */
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -24,6 +26,7 @@ button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
 a { color: inherit; text-decoration: none; }
 
+/* Center the sign-in card and style its forms and messages. */
 .auth-page {
   min-height: 100vh;
   display: grid;
@@ -76,6 +79,7 @@ textarea { min-height: 100px; resize: vertical; }
 .message.error { background: #fef3f2; color: #b42318; }
 .message.info { background: #eff6ff; color: #1d4ed8; }
 
+/* Arrange the app navigation, page header, and main content. */
 .app-layout { min-height: 100vh; display: grid; grid-template-columns: 250px 1fr; }
 .sidebar {
   background: #111827; color: #fff; padding: 22px 16px; position: sticky; top: 0; height: 100vh;
@@ -97,6 +101,24 @@ textarea { min-height: 100px; resize: vertical; }
 .topbar h1 { margin: 0; font-size: 1.3rem; }
 .user-area { display: flex; gap: 12px; align-items: center; }
 .content { padding: 28px; max-width: 1400px; }
+.loading-state {
+  display: flex;
+  min-height: 240px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--muted);
+}
+#app > .loading-state { min-height: 100vh; }
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: loading-spin .8s linear infinite;
+}
+@keyframes loading-spin { to { transform: rotate(360deg); } }
 .page-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; }
 .page-header h2 { margin: 0; }
 .grid { display: grid; gap: 18px; }
@@ -107,6 +129,8 @@ textarea { min-height: 100px; resize: vertical; }
 }
 .stat-value { font-size: 2rem; font-weight: 800; margin: 8px 0; }
 .stat-label { color: var(--muted); font-size: .9rem; }
+
+/* Style buttons and common form layouts. */
 .btn {
   border: 0; border-radius: 10px; padding: 10px 15px; font-weight: 700;
 }
@@ -122,6 +146,8 @@ textarea { min-height: 100px; resize: vertical; }
 .form-grid .full-span { grid-column: 1 / -1; }
 .actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .task-list, .resource-list, .booking-list { display: grid; gap: 12px; }
+
+/* Style cards, task rows, status labels, and progress bars. */
 .item {
   border: 1px solid var(--border); border-radius: 12px; padding: 16px;
   display: grid; gap: 10px; background: white;
@@ -140,6 +166,8 @@ table { width: 100%; border-collapse: collapse; }
 th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
 th { color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
 .empty { text-align: center; padding: 36px; color: var(--muted); }
+
+/* Place modal forms above the rest of the page. */
 .modal-backdrop {
   position: fixed; inset: 0; background: rgba(15,23,42,.5); display: grid; place-items: center;
   padding: 20px; z-index: 20;
@@ -155,7 +183,8 @@ th { color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-sp
 .choice:hover { background: #eff6ff; border-color: #93c5fd; }
 .notice { padding: 12px 14px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; color: #92400e; }
 
-c {
+/* Change the layout for tablets and smaller screens. */
+@media (max-width: 900px) {
   .auth-shell { grid-template-columns: 1fr; }
   .auth-brand { padding: 36px; }
   .app-layout { grid-template-columns: 1fr; }
@@ -164,6 +193,8 @@ c {
   .stats { grid-template-columns: repeat(2, 1fr); }
   .resource-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* Stack controls and content on small mobile screens. */
 @media (max-width: 620px) {
   .content { padding: 18px; }
   .topbar { padding: 14px 18px; }
@@ -173,6 +204,7 @@ c {
   .user-area .email { display: none; }
 }
 
+/* Hide navigation and controls when printing progress. */
 @media print {
   .sidebar, .topbar, .no-print { display: none !important; }
   .app-layout { display: block; }

@@ -1,134 +1,149 @@
-import { auth, db } from "./firebase.js";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-import {
-  ref, set, serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
-import { showMessage } from "./app.js";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+import { get, ref, set } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
+import { auth, db, firebaseConfigured } from "./firebase.js";
 
+const message = document.getElementById("message");
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
-const message = document.getElementById("message");
+const setupMessage = "Firebase is not configured. Add your Firebase Web App settings to js/firebase.js, then reload this page.";
 
+// Show sign-in and setup feedback in the message area.
+function showMessage(text, type = "error") {
+  message.textContent = text;
+  message.className = `message ${type}`;
+}
+
+// Prevent repeat submissions while Firebase is working.
+function setFormBusy(form, busy) {
+  form.querySelector('button[type="submit"]').disabled = busy;
+}
+
+// Replace common Firebase errors with messages users can understand.
+function friendlyAuthError(error) {
+  const messages = {
+    "auth/invalid-email": "Enter a valid email address.",
+    "auth/invalid-credential": "Email or password is incorrect.",
+    "auth/user-not-found": "No account exists for this email. Register first.",
+    "auth/wrong-password": "Email or password is incorrect.",
+    "auth/email-already-in-use": "An account already exists for this email. Sign in instead.",
+    "auth/weak-password": "Choose a password with at least 6 characters.",
+    "auth/too-many-requests": "Too many attempts. Wait a moment and try again.",
+    "auth/network-request-failed": "Could not reach Firebase. Check your internet connection.",
+    "auth/operation-not-allowed": "Email/password sign-in is not enabled for this Firebase project.",
+    "auth/unauthorized-domain": "This website domain is not authorized in Firebase Authentication."
+  };
+
+  return messages[error.code] || `Authentication failed (${error.code || "unknown error"}). Check your Firebase configuration and try again.`;
+}
+
+// Send each account type to its own home page.
+function routeForRole(role) {
+  window.location.assign(role === "assessor" ? "assessor.html" : "dashboard.html");
+}
+
+// Switch between the sign-in and registration forms.
 document.querySelectorAll(".tab").forEach(tab => {
   tab.addEventListener("click", () => {
-    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
-    const login = tab.dataset.tab === "login";
-    loginForm.classList.toggle("hidden", !login);
-    registerForm.classList.toggle("hidden", login);
-    message.className = "message hidden";
+    const registering = tab.dataset.tab === "register";
+    document.querySelectorAll(".tab").forEach(item => item.classList.toggle("active", item === tab));
+    loginForm.classList.toggle("hidden", registering);
+    registerForm.classList.toggle("hidden", !registering);
+    if (firebaseConfigured) {
+      message.classList.add("hidden");
+    } else {
+      showMessage(setupMessage);
+    }
   });
 });
 
-onAuthStateChanged(auth, user => {
-  if (user) {
-    // Existing authenticated users are sent to their dashboard after profile lookup.
-    // Avoid redirecting while a user is midway through account creation.
-  }
-});
+// Explain the missing project settings before the user submits a form.
+if (!firebaseConfigured) {
+  showMessage(setupMessage);
+}
 
+// Sign in, check that the account has a profile, then open its home page.
 loginForm.addEventListener("submit", async event => {
   event.preventDefault();
-  showMessage(message, "Signing you in...", "info");
+  if (!firebaseConfigured) return;
 
-  const email = document.getElementById("loginEmail").value.trim().toLowerCase();
-  const password = document.getElementById("loginPassword").value;
-  let credential;
+  setFormBusy(loginForm, true);
+  message.classList.add("hidden");
 
+  let signedIn = false;
   try {
-    credential = await signInWithEmailAndPassword(auth, email, password);
-  } catch (error) {
-    console.error("Firebase Authentication sign-in failed:", error);
+    const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+    const password = document.getElementById("loginPassword").value;
+    const credential = await signInWithEmailAndPassword(auth, email, password);
+    signedIn = true;
+    const profileSnapshot = await get(ref(db, `users/${credential.user.uid}`));
 
-    const text = ["auth/invalid-credential", "auth/wrong-password", "auth/user-not-found", "auth/invalid-email"].includes(error.code)
-      ? "Email or password is incorrect. Check your details or register first."
-      : error.code === "auth/configuration-not-found"
-      ? "Firebase Authentication is not configured for this project. Check the project and Email/Password setup in Firebase Console."
-      : error.code === "auth/operation-not-allowed"
-      ? "Email/password sign-in is disabled in Firebase Authentication settings."
-      : `Sign-in failed${error.code ? ` (${error.code})` : ". Check your connection and try again."}`;
-
-    showMessage(message, text, "error");
-    return;
-  }
-
-  try {
-    const { get } = await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js");
-    const snap = await get(ref(db, `users/${credential.user.uid}`));
-
-    if (!snap.exists()) {
-      showMessage(message, "You signed in, but your learner profile is missing from the database.", "error");
+    if (!profileSnapshot.exists()) {
+      await signOut(auth);
+      signedIn = false;
+      showMessage("This account has no learner profile. Register a learner account or contact an administrator.");
       return;
     }
 
-    window.location.href = snap.val().role === "assessor" ? "assessor.html" : "dashboard.html";
+    routeForRole(profileSnapshot.val().role);
   } catch (error) {
-    console.error("Signed in, but profile lookup failed:", error);
-    showMessage(message, `You signed in, but your profile could not be loaded${error.code ? ` (${error.code})` : ""}. Check the Realtime Database rules and connection.`, "error");
+    if (!signedIn) {
+      showMessage(friendlyAuthError(error));
+      return;
+    }
+
+    let text = `You signed in, but your account profile could not be loaded (${error.code || "unknown error"}). Check the Realtime Database URL and rules.`;
+    try {
+      await signOut(auth);
+    } catch (signOutError) {
+      text += ` Sign-out also failed (${signOutError.code || "unknown error"}).`;
+    }
+    showMessage(text);
+  } finally {
+    setFormBusy(loginForm, false);
   }
 });
 
+// Create a Firebase account and save its learner profile.
 registerForm.addEventListener("submit", async event => {
   event.preventDefault();
+  if (!firebaseConfigured) return;
 
   const name = document.getElementById("registerName").value.trim();
   const email = document.getElementById("registerEmail").value.trim().toLowerCase();
   const password = document.getElementById("registerPassword").value;
-  const confirm = document.getElementById("registerConfirm").value;
+  const confirmation = document.getElementById("registerConfirm").value;
 
-  if (password !== confirm) {
-    showMessage(message, "Passwords do not match.", "error");
+  if (password !== confirmation) {
+    showMessage("The passwords do not match.");
     return;
   }
 
-  if (password.length < 6) {
-    showMessage(message, "Password must be at least 6 characters.", "error");
-    return;
-  }
+  setFormBusy(registerForm, true);
+  message.classList.add("hidden");
 
+  let accountCreated = false;
   try {
-    showMessage(message, "Creating your account...", "info");
-
     const credential = await createUserWithEmailAndPassword(auth, email, password);
-
-    try {
-      await set(ref(db, `users/${credential.user.uid}`), {
-        name,
-        email,
-        role: "learner",
-        createdAt: serverTimestamp()
-      });
-    } catch (error) {
-      console.error("Account created, but learner profile could not be saved:", error);
-      showMessage(
-        message,
-        `Your account was created, but its learner profile could not be saved. Check Realtime Database rules and connection${error.code ? ` (${error.code})` : ""}.`,
-        "error"
-      );
-      return;
-    }
-
-    showMessage(message, "Account created. Redirecting...", "success");
-    window.location.href = "dashboard.html";
+    accountCreated = true;
+    await updateProfile(credential.user, { displayName: name });
+    await set(ref(db, `users/${credential.user.uid}`), {
+      name,
+      email,
+      role: "learner"
+    });
+    routeForRole("learner");
   } catch (error) {
-    console.error(error);
-
-    const text = error.code === "auth/email-already-in-use"
-      ? "This email address is already registered."
-      : error.code === "auth/invalid-email"
-      ? "Please enter a valid email address."
-      : error.code === "auth/weak-password"
-      ? "Password is too weak."
-      : error.code === "auth/operation-not-allowed"
-      ? "Email/password registration is disabled. Enable it in Firebase Authentication settings."
-      : error.code === "auth/configuration-not-found"
-      ? "Firebase Authentication is not configured for this project. Finish Authentication setup and enable Email/Password for the project configured in js/firebase.js."
-      : `Registration failed${error.code ? ` (${error.code})` : ". Please try again."}`;
-
-    showMessage(message, text, "error");
+    let text = friendlyAuthError(error);
+    if (accountCreated) {
+      text = `Your account was created, but setup could not be completed (${error.code || "unknown error"}). Check the Realtime Database URL and rules, then contact an administrator.`;
+      try {
+        await signOut(auth);
+      } catch (signOutError) {
+        text += ` Sign-out also failed (${signOutError.code || "unknown error"}).`;
+      }
+    }
+    showMessage(text);
+  } finally {
+    setFormBusy(registerForm, false);
   }
 });
