@@ -3,36 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Page title shown in the browser tab -->
   <title>Learner Support System | Dashboard</title>
-
-  <!-- Connects the page to the main stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-  <!-- The dashboard content will be loaded into this container -->
-  <div id="app"></div>
-
+  <!-- JavaScript builds the shared page layout and dashboard content here. -->
+  <div id="app">
+    <div class="loading-state" role="status" aria-live="polite">
+      <span class="loading-spinner" aria-hidden="true"></span>
+      <span>Loading page...</span>
+    </div>
+  </div>
   <script type="module">
-
-    // Import functions used to protect the page and create the portal layout
     import { requireAuth, renderShell } from "./js/app.js";
-
-    // Import the function that loads the learner dashboard
     import { initDashboard } from "./js/dashboard.js";
-
-    // Only allow logged-in learners to access the dashboard
+    // Only allow learners to open this page.
     requireAuth("learner");
-
-    // Load the common learner portal layout
+    // Show the shared navigation and the learner dashboard.
     renderShell("dashboard");
-
-    // Start the learner dashboard functionality
     initDashboard();
-
   </script>
 </body>
 </html>
