@@ -1,48 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learner Support System | Login</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkillsTrack | Learner Support Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#13293d;
+  --teal:#1f7a72;
+  --gold:#f2b544;
+  --paper:#f6f8f9;
+  --line:#dbe3e8;
+  --display:'Fraunces',Georgia,serif;
+  --body:'Public Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* Navigation */
+.nav{
+  display:flex;justify-content: center;grid-template-columns:1fr auto 1fr;align-items:center;width:100%;padding: 18px 32px;background:#ffffff;border-bottom: 1px solid var(--line)
+  
+}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:.9rem;font-weight:500}
+.nav ul a:hover{color:var(--teal)}
+.logo{font-family:var(--display);font-size: 60px;font-weight:700;display:flex;align-items:center;gap:12px;margin: 0 auto;}
+.logo svg{width:28px;height:28px}
+.nav-right{display:flex;justify-content:flex-end;align-items:center;gap:14px}
+.btn-login{font-size:.9rem;font-weight:600;padding:8px 18px;border:2px solid var(--ink);border-radius:999px}
+.btn-login:hover{background:var(--ink);color:#fff}
+
+/* Banner strip */
+.strip{background:var(--gold);text-align:center;padding:14px 16px;font-family:var(--display);font-size:1.4rem;font-weight:700}
+
+/* Hero */
+.hero{position:relative;min-height:440px;display:grid;place-items:center;text-align:center;padding:64px 24px;color:#fff;overflow:hidden;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(242,181,68,.35) 0 90px,transparent 91px),
+    radial-gradient(circle at 88% 82%,rgba(31,122,114,.55) 0 170px,transparent 171px),
+    linear-gradient(135deg,#13293d 0%,#1d4557 100%)}
+.hero h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4.2rem);line-height:1.1;max-width:14ch;margin:0 auto 24px}
+.hero p{max-width:46ch;margin:0 auto 28px;color:#d3e1e8;font-size:1.05rem}
+.hero-button {display: flex;justify-content:center;width:100%;margin-top:10px;background:var(--ink);color:#fff;font-size:60px;font-weight:600px;padding:12px 28px;border-radius:999px;transition:.2s}
+.hero-button:hover{background:var(--teal)
+}
+
+/* Topics row */
+.topics{display:grid;grid-template-columns:repeat(4,1fr)}
+.topic{position:relative;min-height:150px;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;color:#fff;text-align:center;align-items:center;border:0;cursor:pointer;font-family:inherit}
+.topic:nth-child(1){background:#2a3f52}
+.topic:nth-child(2){background:#1f5f66}
+.topic:nth-child(3){background:#3a4a5e}
+.topic:nth-child(4){background:#26505a}
+.topic:hover{filter:brightness(1.15)}
+.topic b{font-family:var(--display);font-size:1rem}
+.topic span{font-size:.85rem;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* Support strip */
+.help{max-width:960px;margin:0 auto;padding:56px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.help h2{font-family:var(--display);font-size:1.15rem;margin-bottom:6px}
+.help p{color:#4a5d6c;font-size:.95rem}
+.help div{border-top:3px solid var(--teal);padding-top:14px}
+
+footer{text-align:center;padding:24px;font-size:.85rem;color:#4a5d6c;border-top:1px solid var(--line)}
+
+
+
+@media(max-width:760px){
+  .nav{grid-template-columns:1fr auto;padding:14px 18px}
+  .nav ul{display:none}
+  .videos{grid-template-columns:repeat(2,1fr)}
+  .help{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.play i{transition:none}}
+</style>
 </head>
-<body class="auth-page">
-  <main class="auth-shell">
-    <!-- Introduce the system beside the sign-in form. -->
-    <section class="auth-brand">
-      <div class="brand-mark">LS</div>
-      <h1>Learner Support System</h1>
-      <p>Manage learning tasks, support sessions, resources and progress in one place.</p>
-    </section>
+<body>
 
-    <!-- Let existing users sign in and new users register. -->
-    <section class="auth-card">
-      <div class="tabs">
-        <button class="tab active" data-tab="login">Sign In</button>
-        <button class="tab" data-tab="register">Register</button>
-      </div>
+<header class="nav">
 
-      <div id="message" class="message hidden"></div>
+  <a class="logo" href="#">
+    <svg viewBox="0 0 28 28" fill="none" stroke="#13293d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22 11 14l5 4 8-10"/><path d="M18 8h6v6"/></svg>
+    SkillsTrack
+  </a>
+  
+</header>
 
-      <form id="loginForm" class="auth-form">
-        <h2>Welcome back</h2>
-        <label>Email<input id="loginEmail" type="email" required autocomplete="email"></label>
-        <label>Password<input id="loginPassword" type="password" required autocomplete="current-password"></label>
-        <button class="btn primary full" type="submit">Sign In</button>
-      </form>
+<div class="strip">Live learner support</div>
 
-      <form id="registerForm" class="auth-form hidden">
-        <h2>Create learner account</h2>
-        <p class="muted">New accounts are created as Learners. Assessor accounts must be provisioned by an administrator.</p>
-        <label>Full name<input id="registerName" type="text" minlength="2" maxlength="100" required autocomplete="name"></label>
-        <label>Email<input id="registerEmail" type="email" required autocomplete="email"></label>
-        <label>Password<input id="registerPassword" type="password" minlength="6" required autocomplete="new-password"></label>
-        <label>Confirm password<input id="registerConfirm" type="password" minlength="6" required autocomplete="new-password"></label>
-        <button class="btn primary full" type="submit">Create Account</button>
-      </form>
-    </section>
-  </main>
-  <!-- Load the Firebase sign-in and registration handlers. -->
-  <script type="module" src="js/auth.js"></script>
+<section class="hero" id="about">
+  <div>
+    <h1>Learn and get help from anywhere</h1>
+    
+    <div class="hero-button"><a class="btn-login" href="index.html">Portal</a></div>
+  </div>
+</section>
+
+<section class="topics" id="courses" aria-label="Featured topics">
+  <button class="topic" data-title="Getting started"><b>Getting started</b></button>
+  <button class="topic" data-title="Submitting your assignment"><b>Creating and submitting your tasks</b></button>
+  <button class="topic" data-title="Booking a mentor session"><b>Booking a mentor session</b></button>
+  <button class="topic" data-title="Tracking your progress"><b>Tracking your progress</b></button>
+</section>
+
+<section class="help" id="help">
+  <div id="tools"><h2>Ask a question</h2><p>Send a support request and see the reply on your dashboard.</p></div>
+  <div><h2>Book a session</h2><p>Pick a time that suits you with a facilitator or mentor.</p></div>
+  <div><h2>Follow your progress</h2><p>See what you have finished and what is next.</p></div>
+</section>
+
+<footer>&copy right TPCgroup 14 2026 SkillsTrack Learner Support Portal - Contacts: 012 567 8910    email: info@skillstrack.com</footer>
+
+<script>
+const dlg = document.getElementById('dlg');
+const title = document.getElementById('dlg-title');
+document.querySelectorAll('[data-title]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    title.textContent = btn.dataset.title;
+    dlg.showModal();
+  });
+});
+document.getElementById('close').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+</script>
+
 </body>
 </html>
